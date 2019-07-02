@@ -1,0 +1,98 @@
+
+import Foundation
+import UIKit
+import Alamofire
+
+public class userFunctions
+{
+    var token:String = ""
+    var user:users?
+    let connections = staticLinks()
+
+    
+    func signUp(email:String, password:String, name:String, role:Bool, completion:@escaping(Bool, [String:Any]?, String?, Error?) -> Void)
+    {
+        let signupParameters: Parameters = ["email":"fahad@saleem.com","name":"fs","password":"123","Role":"1"]
+        
+        AF.request("\(connections.signUp)", method: .post, parameters: signupParameters, encoding: JSONEncoding.default).responseJSON
+            {
+                (response) in
+                
+            print("Response: \(String(describing: response.response))")
+            print("Result: \(String(describing: response.result))")
+                
+            }
+    }
+    
+    
+    func login(email:String,password:String, completion:@escaping(Bool, users?, String?, Error?) -> Void)
+    {
+        let loginParameters:Parameters = ["email":"\(email)", "password":"\(password)"]
+        
+        AF.request("\(connections.login)", method: .post, parameters: loginParameters, encoding: JSONEncoding.default).validate().responseJSON
+            {
+                (response) in
+                
+                switch response.result
+                {
+                case .failure(let error)    : print(error.localizedDescription)
+                    
+                case .success               : do
+                                                {
+                                                    let json = try response.result.get() as! [String:Any]
+                                                    let obj = json["data"] as! [String:Any]
+                                                    //Getting Token
+                                                    let currentToken = obj["token"] as! String
+                                                    self.token = currentToken
+                                                    //Getting User Data
+                                                    let userData = obj["user"] as! [String:Any?]
+
+                                                    let jsonData = try! JSONSerialization.data(withJSONObject: userData, options: JSONSerialization.WritingOptions.prettyPrinted)
+                                                    
+                                                    let decoder = JSONDecoder()
+                                                        
+                                                    do
+                                                        {
+                                                            self.user = try decoder.decode(users.self, from: jsonData)
+                                                            print("\n\(self.user!.role!) ----- \(self.user!.name!) ----- \(self.user!.email!)")
+                                                        }
+                                                    catch
+                                                        {
+                                                            print(error.localizedDescription)
+                                                        }
+                    
+                                                    completion( true, self.user, self.token, nil )
+                                                }
+                    
+                                                catch
+                                                {
+                                                    print("Login failed. \(error.localizedDescription)")
+                                                    
+                                                    completion( false, nil, nil ,error)
+                                                }
+                }
+            }
+
+    }
+    
+    func editAccountSettings()
+    {
+        
+    }
+    
+    func deactivateAccount()
+    {
+        
+    }
+    
+    
+//    func progressViewShow()
+//    {
+//        progressView.show(on: UIView.self)
+//    }
+//
+//    func progressViewHide()
+//    {
+//        progressView.hide()
+//    }
+}
