@@ -202,7 +202,8 @@
                                         <rect key="frame" x="0.0" y="40" width="198" height="30"/>
                                         <state key="normal" title="New member ? SignUp Here!"/>
                                         <connections>
-                                            <segue destination="eaC-h1-QVr" kind="show" id="TOf-j6-n1z"/>
+                                            <action selector="signUp:" destination="aZK-Wf-pac" eventType="touchUpInside" id="Pct-kD-hUq"/>
+                                            <segue destination="eaC-h1-QVr" kind="show" identifier="userTypeScreen" id="TOf-j6-n1z"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -385,7 +386,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M9N-9A-wJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4" y="-316"/>
+            <point key="canvasLocation" x="4" y="-319"/>
         </scene>
         <!--Inventory Management System-->
         <scene sceneID="pZ6-bs-1Fq">
@@ -1015,7 +1016,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R4V-Lb-xgf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1229" y="489"/>
+            <point key="canvasLocation" x="-1249" y="489"/>
         </scene>
     </scenes>
     <resources>

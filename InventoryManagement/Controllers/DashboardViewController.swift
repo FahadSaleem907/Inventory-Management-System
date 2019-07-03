@@ -1,11 +1,3 @@
-//
-//  DashboardViewController.swift
-//  InventoryManagement
-//
-//  Created by SunnyMac on 24/06/2019.
-//  Copyright © 2019 SunnyMac. All rights reserved.
-//
-
 import UIKit
 import Foundation
 import SideMenu

@@ -27,7 +27,6 @@ class MainViewController: UIViewController
         menuTableView.delegate = self
         menuTableView.dataSource = self
         menuTableView.isScrollEnabled = false
-        //cleanSelection()
         
         menuView.layer.shadowOpacity = 1
         navigationController?.isNavigationBarHidden = true

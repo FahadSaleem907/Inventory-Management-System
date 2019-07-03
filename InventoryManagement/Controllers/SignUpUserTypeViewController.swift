@@ -11,6 +11,8 @@ import UIKit
 class SignUpUserTypeViewController: UIViewController {
 
     
+    var tmpUser:users?
+    
     @IBAction func userType(_ sender: UISegmentedControl)
     {
         if userTypeOut.selectedSegmentIndex == 0
@@ -52,6 +54,21 @@ extension SignUpUserTypeViewController
         let alertValidation = UIAlertController(title: "", message: msg, preferredStyle: .alert)
         
         let buttonYes = UIAlertAction(title: "Yes", style: .default) { (_) in
+            if self.userTypeOut.selectedSegmentIndex == 0
+            {
+                
+                self.tmpUser?.email = nil
+                self.tmpUser?.name = nil
+                self.tmpUser?.password = nil
+                self.tmpUser?.id = 0
+                self.tmpUser?.role = true
+                
+                print(self.tmpUser)
+            }
+            else
+            {
+                
+            }
             
             self.performSegue(withIdentifier: "signUpScreen", sender: self)
         }

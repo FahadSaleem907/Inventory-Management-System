@@ -17,6 +17,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var pwTxtOut: fancyTextField!
     
     
+    
     @IBAction func loginBtn(_ sender: UIButton)
     {
         
@@ -73,16 +74,27 @@ class SignInViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func signUp(_ sender: UIButton)
+    {
+        performSegue(withIdentifier: "userTypeScreen", sender: self)
+    }
+    
+    
     let userServices = userFunctions()
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
+        
+        if segue.identifier == "loginScreen"
+        {
         let getDashboard = segue.destination as! UINavigationController
         let dashboard = getDashboard.viewControllers.first as! DashboardViewController
-        
+
         print(role)
         dashboard.tmpRole = role
+        }
     }
     
     
