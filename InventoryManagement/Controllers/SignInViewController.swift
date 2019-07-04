@@ -113,7 +113,7 @@ class SignInViewController: UIViewController {
 
         //userServices.login(email: "fahad@saleem.com", password: "123")
         
-        emailTxtOut.text = "fahad@saleem.com"
+        emailTxtOut.text = "test@test.com"
         pwTxtOut.text = "123"
         print(userServices.token + "----------------------------")
         

@@ -10,6 +10,8 @@ import UIKit
 
 class ViewStocksController: UIViewController {
 
+    @IBOutlet weak var stockTableView: UITableView!
+    
     
     @IBAction func backButton(_ sender: UIButton)
     {
@@ -18,22 +20,56 @@ class ViewStocksController: UIViewController {
     
     
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
+        stockTableView.delegate     = self
+        stockTableView.dataSource   = self
+        
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.title = "Inventory Management System"
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension ViewStocksController:UITableViewDelegate,UITableViewDataSource
+{
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ProductTableViewCell
+        
+        cell.productName.text = "123"
+        
+        return cell
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let selectedIndex = indexPath
+        let selectedCell = tableView.cellForRow(at: selectedIndex) as! ProductTableViewCell
+        
+        selectedCell.productDetailsOutlet.isHidden = false
+        
+        print("1")
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
+    {
+        let selectedIndex = indexPath
+        let selectedCell = tableView.cellForRow(at: selectedIndex) as! ProductTableViewCell
+        
+        selectedCell.productDetailsOutlet.isHidden = true
+        
+        print("2")
+    }
 }

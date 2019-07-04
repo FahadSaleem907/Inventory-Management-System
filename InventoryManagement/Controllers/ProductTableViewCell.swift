@@ -1,32 +1,31 @@
 //
-//  StoreTableViewCell.swift
+//  ProductTableViewCell.swift
 //  InventoryManagement
 //
-//  Created by FahadSaleem on 03/07/2019.
+//  Created by FahadSaleem on 04/07/2019.
 //  Copyright © 2019 SunnyMac. All rights reserved.
 //
 
 import UIKit
 
-class StoreTableViewCell: UITableViewCell
-{
+class ProductTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var storeName: UILabel!
-    @IBOutlet weak var storeLocation: UILabel!
+    @IBOutlet weak var productName: UILabel!
+    @IBOutlet weak var productDetailsOutlet: UIButton!
+    
     
     
     override func awakeFromNib()
     {
         super.awakeFromNib()
         
-        //storeDetailOut.isHidden = true
+        productDetailsOutlet.isHidden = true
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool)
-    {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+
         // Configure the view for the selected state
     }
 

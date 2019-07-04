@@ -62,9 +62,8 @@ extension ViewStoresController: UITableViewDelegate,UITableViewDataSource
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! StoreTableViewCell
         
-        
-        
-        cell.storeName.text = finalData[indexPath.row].storeName
+        cell.storeName.text     = finalData[indexPath.row].storeName
+        cell.storeLocation.text = finalData[indexPath.row].location
         
         return cell
     }
@@ -74,14 +73,23 @@ extension ViewStoresController: UITableViewDelegate,UITableViewDataSource
         return 100
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        return print("1")
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
-    {
-        return print("1")
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+//    {
+//        let selectedIndex = indexPath
+//        let selectedCell = tableView.cellForRow(at: selectedIndex) as! StoreTableViewCell
+//
+//        selectedCell.storeDetailOut.isHidden = false
+//
+//        return print("1")
+//    }
+//
+//
+//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
+//    {
+//        let selectedIndex = indexPath
+//        let selectedCell = tableView.cellForRow(at: selectedIndex) as! StoreTableViewCell
+//
+//        selectedCell.storeDetailOut.isHidden = true
+//    }
     
 }
