@@ -1,19 +1,12 @@
-//
-//  storeFunctions.swift
-//  InventoryManagement
-//
-//  Created by SunnyMac on 26/06/2019.
-//  Copyright © 2019 SunnyMac. All rights reserved.
-//
-
 import Foundation
 import UIKit
 import Alamofire
 
 public class storeFunctions
 {
+    
+    let connections = staticLinks()
     var token:String?
-    //var currentStores:stores?
     var storeList = [stores?]()
     var userServices = userFunctions()
     
@@ -43,6 +36,7 @@ public class storeFunctions
             }
     }
     
+    
     func getStores(token:String, completion:@escaping(Bool?, [stores?]? , Error?)->Void)
     {
         let getStoreHeader:HTTPHeaders   = [
@@ -52,7 +46,7 @@ public class storeFunctions
                                            ]
 
         
-        AF.request("https://app-inventory.herokuapp.com/getStores", method: .get, encoding: JSONEncoding.default, headers: getStoreHeader).responseJSON
+        AF.request("\(connections.getStore)", method: .get, encoding: JSONEncoding.default, headers: getStoreHeader).responseJSON
             {
                 (response) in
             

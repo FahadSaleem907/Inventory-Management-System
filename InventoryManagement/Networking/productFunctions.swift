@@ -1,17 +1,16 @@
-//
-//  basicFunctions.swift
-//  InventoryManagement
-//
-//  Created by SunnyMac on 24/06/2019.
-//  Copyright © 2019 SunnyMac. All rights reserved.
-//
-
 import Foundation
 import UIKit
 import Alamofire
 
-public struct productFunctions
+public class productFunctions
 {
+    
+    let connections = staticLinks()
+    var token:String?
+    var productList = [products?]()
+    var userServices = userFunctions()
+    
+    
     func addProduct(token:String)
     {
         let addProductHeader:HTTPHeaders   = [
@@ -38,21 +37,69 @@ public struct productFunctions
             }
     }
     
-    func getProduct(token:String)
+    func getProduct(token:String, completion:@escaping(Bool?, [products?]? , Error?)->Void)
     {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        
+        self.token = delegate.mainToken!
+        
+        print("SELF TOKEN = \(self.token!)")
+        
         let getProductHeader:HTTPHeaders   = [
-                                            "token":"\(token)",
+                                            "token":"\(self.token!)",
             
                                                 "Accept":"application/json"
                                              ]
         
         
-        AF.request("https://app-inventory.herokuapp.com/getProducts", method: .get, encoding: JSONEncoding.default, headers: getProductHeader).responseJSON
+        AF.request("\(connections.getProduct)", method: .get, encoding: JSONEncoding.default, headers: getProductHeader).responseJSON
             {
                 (response) in
                 
                 print("Response: \(String(describing: response.response))")
                 print("Result: \(String(describing: response.result))")
+                
+                switch response.result
+                
+                {
+                case .failure(let error)    :   print(error.localizedDescription)
+                    
+                case .success               :   do
+                                                    {
+                                                        let json = try response.result.get() as! [String:Any]
+                                                        let obj = json["data"] as! [Any]
+                    
+                    
+                                                        print("For Store: Obj = \(obj)")
+                                                        print("For Store: JSOn = \(json)")
+                                                        print("Result : \(response.result)")
+                    
+                                                        let jsonData = try! JSONSerialization.data(withJSONObject: obj, options: JSONSerialization.WritingOptions.prettyPrinted)
+                    
+                                                        let decoder = JSONDecoder()
+                    
+                                                        do
+                                                            {
+                                                                self.productList = try decoder.decode([products].self, from: jsonData)
+                        //print("\n\(self.store.) ----- \(self.user!.name!) ----- \(self.user!.email!)")
+                        
+                                                                print("SSSSSS \(self.productList) SSSSSSSS")
+                                                            }
+                                                            catch
+                                                            {
+                                                                print(error.localizedDescription)
+                                                            }
+                    
+                                                    completion( true, self.productList , nil )
+                                                    }
+                    
+                                                    catch
+                                                    {
+                                                        print("Login failed. \(error.localizedDescription)")
+                    
+                                                        completion( nil , nil , error )
+                                                    }
+                    }
         }
     }
 

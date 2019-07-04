@@ -10,6 +10,12 @@ import UIKit
 
 class ViewStocksController: UIViewController {
 
+    var finalData = [products]()
+    var productServices = productFunctions()
+    let delegate = UIApplication.shared.delegate as! AppDelegate
+    
+    
+    
     @IBOutlet weak var stockTableView: UITableView!
     
     
@@ -18,6 +24,35 @@ class ViewStocksController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    func getData()
+    {
+        productServices.getProduct(token: self.delegate.mainToken!)
+        {
+            (success, productList, error) in
+            
+            
+            guard let productList = productList else { return }
+            
+            print("++++++++++++++ \(productList) ++++++++++++++")
+            self.finalData = productList as! [products]
+            self.stockTableView.reloadData()
+        }
+        
+        
+//        productServices.getProduct(token: self.delegate.mainToken!) { (success , productList , error) in
+//
+//            guard let productList = productList else { return }
+//
+//            print("++++++++++++++ \(productList) ++++++++++++++")
+//
+//            self.finalData = productList as! [products]
+//
+//            self.stockTableView.reloadData()
+            //print("============== \(self.finalData)  =============")
+            
+            //print(">>>>>>>> \(self.delegate.currentUser) <<<<<<<<<<<")
+        
+    }
     
     
     override func viewDidLoad()
@@ -26,6 +61,11 @@ class ViewStocksController: UIViewController {
 
         stockTableView.delegate     = self
         stockTableView.dataSource   = self
+        
+        getData()
+        print("***********************")
+        print(delegate.mainToken!)
+        print("***********************")
         
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.title = "Inventory Management System"
@@ -38,19 +78,19 @@ extension ViewStocksController:UITableViewDelegate,UITableViewDataSource
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ProductTableViewCell
         
-        cell.productName.text = "123"
+        cell.productName.text = finalData[indexPath.row].name
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 5
+        return finalData.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 100
+        return 75
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)

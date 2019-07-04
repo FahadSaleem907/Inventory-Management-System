@@ -10,6 +10,7 @@ public class userFunctions
     let connections = staticLinks()
     let delegate = UIApplication.shared.delegate as! AppDelegate
     
+    
     func signUp(email:String, password:String, name:String, role:Bool, completion:@escaping(Bool, [String:Any]?, String?, Error?) -> Void)
     {
         let signupParameters: Parameters = ["email":"fahad@saleem.com","name":"fs","password":"123","Role":"1"]
@@ -93,14 +94,4 @@ public class userFunctions
         
     }
     
-    
-//    func progressViewShow()
-//    {
-//        progressView.show(on: UIView.self)
-//    }
-//
-//    func progressViewHide()
-//    {
-//        progressView.hide()
-//    }
 }

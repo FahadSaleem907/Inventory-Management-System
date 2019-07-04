@@ -19,6 +19,7 @@ class ViewStoresController: UIViewController {
     {
         storeServices.getStores(token: self.delegate.mainToken!) { (success , storeList , error) in
             
+            
             guard let storeList = storeList else { return }
             
             print("++++++++++++++ \(storeList) ++++++++++++++")
@@ -26,9 +27,6 @@ class ViewStoresController: UIViewController {
             self.finalData = storeList as! [stores]
             
             self.storeTableView.reloadData()
-            //print("============== \(self.finalData)  =============")
-            
-            //print(">>>>>>>> \(self.delegate.currentUser) <<<<<<<<<<<")
         }
     }
     
@@ -43,9 +41,6 @@ class ViewStoresController: UIViewController {
         storeTableView.dataSource   = self
         
         getData()
-//        print("Token: \(self.delegate.mainToken!)")
-//        print("User Email: \(self.delegate.currentUser!.email!)")
-//        print("User PW: \(self.delegate.currentUser!.password!)")
     }
 
 }
