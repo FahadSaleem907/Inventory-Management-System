@@ -11,12 +11,7 @@ import UIKit
 class SignUpUserTypeViewController: UIViewController {
     
     var user:users?
-    
-//    var tmpJsonData = """
-//[
-//"email":"" , "name":"" , "password":"" , "role":false , "id":""
-//]
-//"""
+
     
     @IBAction func userType(_ sender: UISegmentedControl)
     {
