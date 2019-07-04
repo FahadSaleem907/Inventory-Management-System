@@ -12,6 +12,7 @@ import RSLoadingView
 class SignInViewController: UIViewController {
 
     var role:Bool = false
+    let delegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var emailTxtOut: fancyTextField!
     @IBOutlet weak var pwTxtOut: fancyTextField!
@@ -48,7 +49,10 @@ class SignInViewController: UIViewController {
                         guard let token = token else { return }
                         guard let user = user else { return }
                         
-                        print(token)
+                        //self.delegate.mainToken = token
+                        //self.delegate.currentUser = user
+                        
+                        //print(token)
                         print(user)
                         self.role = user.role!
                         print(user.role!)

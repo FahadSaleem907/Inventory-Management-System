@@ -10,18 +10,21 @@ import Foundation
 import UIKit
 import Alamofire
 
-public struct storeFunctions
+public class storeFunctions
 {
     var token:String?
-    
+    //var currentStores:stores?
+    var storeList = [stores?]()
     var userServices = userFunctions()
     
-    func addStore()
+    
+    
+    func addStore(token:String)
     {
         
         
         let addStoreHeader:HTTPHeaders   = [
-                                        "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTksImV4cCI6MTU2MTU1NDU2NH0.7lLZdYrAAv01MDre26jvk6N2WzS1QymEcr6nqf9DVvc",
+                                        "token":"\(token)",
                                         
                                             "Accept":"application/json"
                                            ]
@@ -40,10 +43,10 @@ public struct storeFunctions
             }
     }
     
-    func getStores()
+    func getStores(token:String, completion:@escaping(Bool?, [stores?]? , Error?)->Void)
     {
         let getStoreHeader:HTTPHeaders   = [
-                                        "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTksImV4cCI6MTU2MTU1NDk5NH0.4KUFCQYi7WSNiiSOI_9Ml-Xc9ChEJ-kLbMOOfgyLEvY",
+                                        "token":"\(token)",
                                         
                                             "Accept":"application/json"
                                            ]
@@ -53,8 +56,47 @@ public struct storeFunctions
             {
                 (response) in
             
-                print("Response: \(String(describing: response.response))")
-                print("Result: \(String(describing: response.result))")
+                //print("Response: \(String(describing: response.response))")
+                //print("Result: \(String(describing: response.result))")
+                
+                switch response.result
+                {
+                case .failure(let error)    :   print(error.localizedDescription)
+                    
+                case .success               :   do
+                                                {
+                                                    let json = try response.result.get() as! [String:Any]
+                                                    let obj = json["data"] as! [Any]
+   
+                                                    
+                                                    //print("For Store: Obj = \(obj)")
+                                                    //print("For Store: JSOn = \(json)")
+                                                    
+                                                    let jsonData = try! JSONSerialization.data(withJSONObject: obj, options: JSONSerialization.WritingOptions.prettyPrinted)
+                                                    
+                                                    let decoder = JSONDecoder()
+                                                    
+                                                    do
+                                                    {
+                                                        self.storeList = try decoder.decode([stores].self, from: jsonData)
+                                                        //print("\n\(self.store.) ----- \(self.user!.name!) ----- \(self.user!.email!)")
+                                                        
+                                                    }
+                                                    catch
+                                                    {
+                                                        print(error.localizedDescription)
+                                                    }
+                                                    
+                                                    completion( true, self.storeList , nil )
+                                                }
+                    
+                                                catch
+                                                    {
+                                                        print("Login failed. \(error.localizedDescription)")
+                    
+                                                        completion( nil , nil , error )
+                                                    }
+                }
             }
     }
     

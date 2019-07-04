@@ -8,7 +8,7 @@ public class userFunctions
     var token:String = ""
     var user:users?
     let connections = staticLinks()
-
+    let delegate = UIApplication.shared.delegate as! AppDelegate
     
     func signUp(email:String, password:String, name:String, role:Bool, completion:@escaping(Bool, [String:Any]?, String?, Error?) -> Void)
     {
@@ -41,20 +41,28 @@ public class userFunctions
                                                 {
                                                     let json = try response.result.get() as! [String:Any]
                                                     let obj = json["data"] as! [String:Any]
+                                                    
                                                     //Getting Token
                                                     let currentToken = obj["token"] as! String
                                                     self.token = currentToken
+                                                    self.delegate.mainToken = currentToken
+                                                    
+                                                    
                                                     //Getting User Data
                                                     let userData = obj["user"] as! [String:Any?]
-
+                                                    print("DDDDDDDD  \(json)")
                                                     let jsonData = try! JSONSerialization.data(withJSONObject: userData, options: JSONSerialization.WritingOptions.prettyPrinted)
                                                     
                                                     let decoder = JSONDecoder()
-                                                        
+                                                    
+                                                    print("For USER: \(userData)")
                                                     do
                                                         {
                                                             self.user = try decoder.decode(users.self, from: jsonData)
                                                             print("\n\(self.user!.role!) ----- \(self.user!.name!) ----- \(self.user!.email!)")
+                                                            
+                                                            self.delegate.currentUser = self.user
+                                                            
                                                         }
                                                     catch
                                                         {

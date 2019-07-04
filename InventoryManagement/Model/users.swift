@@ -29,11 +29,11 @@ struct users: Codable
     init(from decoder: Decoder) throws
     {
         let values      = try decoder.container(keyedBy: CodingKeys.self)
-            password    = try values.decodeIfPresent(String.self, forKey: .password)
-            id          = try values.decodeIfPresent(Int.self, forKey: .id)
-            email       = try values.decodeIfPresent(String.self, forKey: .email)
-            name        = try values.decodeIfPresent(String.self, forKey: .name)
-            role        = try values.decodeIfPresent(Bool.self, forKey: .role)
+            password    = try values.decodeIfPresent(String.self    , forKey: .password)
+            id          = try values.decodeIfPresent(Int.self       , forKey: .id)
+            email       = try values.decodeIfPresent(String.self    , forKey: .email)
+            name        = try values.decodeIfPresent(String.self    , forKey: .name)
+            role        = try values.decodeIfPresent(Bool.self      , forKey: .role)
     }
     
 //    var email: String

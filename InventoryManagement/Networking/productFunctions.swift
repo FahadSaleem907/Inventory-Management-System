@@ -12,10 +12,10 @@ import Alamofire
 
 public struct productFunctions
 {
-    func addProduct()
+    func addProduct(token:String)
     {
         let addProductHeader:HTTPHeaders   = [
-                                        "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTksImV4cCI6MTU2MTU1Njg3OX0.33BJ3m-AVoT9OHeO9OTMhgka87ZeC0TxdGitLKTOV1A",
+                                        "token":"\(token)",
             
                                             "Accept":"application/json"
                                            ]
@@ -38,10 +38,10 @@ public struct productFunctions
             }
     }
     
-    func getProduct()
+    func getProduct(token:String)
     {
         let getProductHeader:HTTPHeaders   = [
-                                            "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTksImV4cCI6MTU2MTU1Njg3OX0.33BJ3m-AVoT9OHeO9OTMhgka87ZeC0TxdGitLKTOV1A",
+                                            "token":"\(token)",
             
                                                 "Accept":"application/json"
                                              ]
@@ -56,10 +56,10 @@ public struct productFunctions
         }
     }
 
-    func editProduct()
+    func editProduct(token:String)
     {
         let editProductHeader:HTTPHeaders   = [
-            "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTksImV4cCI6MTU2MTU1Njg3OX0.33BJ3m-AVoT9OHeO9OTMhgka87ZeC0TxdGitLKTOV1A",
+            "token":"\(token)",
             
             "Accept":"application/json"
         ]

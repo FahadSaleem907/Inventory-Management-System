@@ -9,9 +9,14 @@
 import UIKit
 
 class SignUpUserTypeViewController: UIViewController {
-
     
-    var tmpUser:users?
+    var user:users?
+    
+//    var tmpJsonData = """
+//[
+//"email":"" , "name":"" , "password":"" , "role":false , "id":""
+//]
+//"""
     
     @IBAction func userType(_ sender: UISegmentedControl)
     {
@@ -54,21 +59,32 @@ extension SignUpUserTypeViewController
         let alertValidation = UIAlertController(title: "", message: msg, preferredStyle: .alert)
         
         let buttonYes = UIAlertAction(title: "Yes", style: .default) { (_) in
-            if self.userTypeOut.selectedSegmentIndex == 0
-            {
-                
-                self.tmpUser?.email = nil
-                self.tmpUser?.name = nil
-                self.tmpUser?.password = nil
-                self.tmpUser?.id = 0
-                self.tmpUser?.role = true
-                
-                print(self.tmpUser)
-            }
-            else
-            {
-                
-            }
+//            if self.userTypeOut.selectedSegmentIndex == 0
+//            {
+//                let jsonData = try! JSONSerialization.data(withJSONObject: self.tmpJsonData, options: .prettyPrinted)
+//
+//                let decoder = JSONDecoder()
+//
+//                do
+//                {
+//                    self.user = try decoder.decode(users.self, from: jsonData)
+//                    print("\n\(self.user!.role!) --Z-- \(self.user!.name!) --Z-- \(self.user!.email!)")
+//                }
+//                catch
+//                {
+//                    print(error.localizedDescription)
+//                }
+                //self.tmpUser?.email = nil
+                //self.tmpUser?.name = nil
+                //self.tmpUser?.password = nil
+                //self.tmpUser?.id = 0
+                //self.tmpUser?.role = true
+                //print(self.tmpUser)
+//            }
+//            else
+//            {
+//
+//            }
             
             self.performSegue(withIdentifier: "signUpScreen", sender: self)
         }

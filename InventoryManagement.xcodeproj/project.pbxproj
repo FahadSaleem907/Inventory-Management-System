@@ -37,6 +37,7 @@
 		A384E02B22C376F800897110 /* salesFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384E02A22C376F800897110 /* salesFunctions.swift */; };
 		A3858AE922C0DB3E0067EE5B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3858AE822C0DB3E0067EE5B /* DashboardViewController.swift */; };
 		A3858AEC22C0F8FE0067EE5B /* productFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3858AEB22C0F8FE0067EE5B /* productFunctions.swift */; };
+		FA361C3F22CCC09100D4904F /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA361C3E22CCC09100D4904F /* StoreTableViewCell.swift */; };
 		FA83DD3F22C7393D009F182E /* connections.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DD3E22C7393D009F182E /* connections.swift */; };
 		FA83DD4122C73B87009F182E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DD4022C73B87009F182E /* SignInViewController.swift */; };
 		FA83DD4322C73B9D009F182E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DD4222C73B9D009F182E /* SignUpViewController.swift */; };
@@ -104,6 +105,7 @@
 		BBC6515E95CA1E3157E3A771 /* Pods_InventoryManagementUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InventoryManagementUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFF4D37E4BFF8861ED24690E /* Pods-InventoryManagementUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventoryManagementUITests.release.xcconfig"; path = "Target Support Files/Pods-InventoryManagementUITests/Pods-InventoryManagementUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E69533E761163A4F0FD57EFC /* Pods-InventoryManagement.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventoryManagement.debug.xcconfig"; path = "Target Support Files/Pods-InventoryManagement/Pods-InventoryManagement.debug.xcconfig"; sourceTree = "<group>"; };
+		FA361C3E22CCC09100D4904F /* StoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		FA83DD3E22C7393D009F182E /* connections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = connections.swift; sourceTree = "<group>"; };
 		FA83DD4022C73B87009F182E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		FA83DD4222C73B9D009F182E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				FA83DD4022C73B87009F182E /* SignInViewController.swift */,
 				FA83DD4222C73B9D009F182E /* SignUpViewController.swift */,
 				FAF239C022CB4D49001C7F5A /* SignUpUserTypeViewController.swift */,
+				FA361C3E22CCC09100D4904F /* StoreTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				FAF239C322CB51F8001C7F5A /* designableUIView SegmentView.swift in Sources */,
 				A31EAD1622B79C5D00E65EC2 /* ViewSalesController.swift in Sources */,
 				A31EAD1222B79C3400E65EC2 /* ViewStoresController.swift in Sources */,
+				FA361C3F22CCC09100D4904F /* StoreTableViewCell.swift in Sources */,
 				FA83DD3F22C7393D009F182E /* connections.swift in Sources */,
 				A31EAD1022B79BF600E65EC2 /* AddSalesController.swift in Sources */,
 				A3014FEA22B4E5710080D8D9 /* DesignableButton.swift in Sources */,
