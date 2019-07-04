@@ -25,6 +25,7 @@ class ViewStoresController: UIViewController {
             
             self.finalData = storeList as! [stores]
             
+            self.storeTableView.reloadData()
             //print("============== \(self.finalData)  =============")
             
             //print(">>>>>>>> \(self.delegate.currentUser) <<<<<<<<<<<")
@@ -54,21 +55,23 @@ extension ViewStoresController: UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 5
+        return finalData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! StoreTableViewCell
         
-        cell.storeName.text = "AaAaA"
+        
+        
+        cell.storeName.text = finalData[indexPath.row].storeName
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 70
+        return 100
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
