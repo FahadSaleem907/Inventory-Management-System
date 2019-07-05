@@ -1,11 +1,3 @@
-//
-//  product.swift
-//  InventoryManagement
-//
-//  Created by SunnyMac on 26/06/2019.
-//  Copyright © 2019 SunnyMac. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -41,23 +33,5 @@ struct products: Codable
         quantity = try values.decodeIfPresent(Int.self, forKey: .quantity)
         pid = try values.decodeIfPresent(Int.self, forKey: .pid)
     }
-    
-//    var name: String
-//    var manufacturer: String
-//    var description: String?
-//    var pricePerUnit: Int
-//    var quantity: Int
-//    var date: String
-//    var productID: Int
-    
-//    init(name:String, manufacturer:String, description:String?, pricePerUnit:Int, quantity:Int, date:String)
-//    {
-//        self.name = name
-//        self.manufacturer = manufacturer
-//        self.description = description
-//        self.pricePerUnit = pricePerUnit
-//        self.quantity = quantity
-//        self.date = date
-//    }
-    
+   
 }
