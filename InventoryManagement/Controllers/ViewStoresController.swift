@@ -67,24 +67,4 @@ extension ViewStoresController: UITableViewDelegate,UITableViewDataSource
     {
         return 100
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-//    {
-//        let selectedIndex = indexPath
-//        let selectedCell = tableView.cellForRow(at: selectedIndex) as! StoreTableViewCell
-//
-//        selectedCell.storeDetailOut.isHidden = false
-//
-//        return print("1")
-//    }
-//
-//
-//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
-//    {
-//        let selectedIndex = indexPath
-//        let selectedCell = tableView.cellForRow(at: selectedIndex) as! StoreTableViewCell
-//
-//        selectedCell.storeDetailOut.isHidden = true
-//    }
-    
 }

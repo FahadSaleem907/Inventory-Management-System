@@ -1,11 +1,3 @@
-//
-//  ViewProductsController.swift
-//  InventoryManagement
-//
-//  Created by SunnyMac on 17/06/2019.
-//  Copyright © 2019 SunnyMac. All rights reserved.
-//
-
 import UIKit
 
 class ViewStocksController: UIViewController {
@@ -37,21 +29,6 @@ class ViewStocksController: UIViewController {
             self.finalData = productList as! [products]
             self.stockTableView.reloadData()
         }
-        
-        
-//        productServices.getProduct(token: self.delegate.mainToken!) { (success , productList , error) in
-//
-//            guard let productList = productList else { return }
-//
-//            print("++++++++++++++ \(productList) ++++++++++++++")
-//
-//            self.finalData = productList as! [products]
-//
-//            self.stockTableView.reloadData()
-            //print("============== \(self.finalData)  =============")
-            
-            //print(">>>>>>>> \(self.delegate.currentUser) <<<<<<<<<<<")
-        
     }
     
     
@@ -63,9 +40,6 @@ class ViewStocksController: UIViewController {
         stockTableView.dataSource   = self
         
         getData()
-        print("***********************")
-        print(delegate.mainToken!)
-        print("***********************")
         
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.title = "Inventory Management System"

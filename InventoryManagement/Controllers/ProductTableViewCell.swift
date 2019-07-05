@@ -1,11 +1,3 @@
-//
-//  ProductTableViewCell.swift
-//  InventoryManagement
-//
-//  Created by FahadSaleem on 04/07/2019.
-//  Copyright © 2019 SunnyMac. All rights reserved.
-//
-
 import UIKit
 
 class ProductTableViewCell: UITableViewCell {

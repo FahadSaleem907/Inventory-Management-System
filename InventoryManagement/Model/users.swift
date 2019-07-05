@@ -1,11 +1,3 @@
-//
-//  users.swift
-//  InventoryManagement
-//
-//  Created by SunnyMac on 26/06/2019.
-//  Copyright © 2019 SunnyMac. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -35,18 +27,5 @@ struct users: Codable
             name        = try values.decodeIfPresent(String.self    , forKey: .name)
             role        = try values.decodeIfPresent(Bool.self      , forKey: .role)
     }
-    
-//    var email: String
-//    var password: String
-//    var name: String
-//    var role:Bool
-    
-//    init(email:String, password:String, name:String, role:Bool)
-//    {
-//        self.email = email
-//        self.password = password
-//        self.name = name
-//        self.role = role
-//    }
-    
+
 }

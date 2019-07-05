@@ -1,11 +1,3 @@
-//
-//  SignInViewController.swift
-//  InventoryManagement
-//
-//  Created by FahadSaleem on 29/06/2019.
-//  Copyright © 2019 SunnyMac. All rights reserved.
-//
-
 import UIKit
 import RSLoadingView
 

@@ -1,16 +1,8 @@
-//
-//  ViewSalesController.swift
-//  InventoryManagement
-//
-//  Created by SunnyMac on 17/06/2019.
-//  Copyright © 2019 SunnyMac. All rights reserved.
-//
-
 import UIKit
 
 class ViewSalesController: UIViewController {
 
-    var finalData = [sales]()
+    var finalData = [completeSales]()
     var salesServices = salesFunctions()
     let delegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -34,7 +26,7 @@ class ViewSalesController: UIViewController {
             
             print("++++++++++++++ \(salesList) ++++++++++++++")
             
-            self.finalData = salesList as! [sales]
+            self.finalData = salesList as! [completeSales]
             
             self.saleTableView.reloadData()
         }
@@ -62,7 +54,7 @@ extension ViewSalesController:UITableViewDelegate,UITableViewDataSource
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! salesTableViewCell
         
-        cell.sale.text = String(finalData[indexPath.row].sid!)
+        cell.sale.text = String(finalData[indexPath.row].sale!.id!)
         
         return cell
     }

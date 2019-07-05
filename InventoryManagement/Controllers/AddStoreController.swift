@@ -1,11 +1,3 @@
-//
-//  RevealViewController.swift
-//  InventoryManagement
-//
-//  Created by SunnyMac on 17/06/2019.
-//  Copyright © 2019 SunnyMac. All rights reserved.
-//
-
 import Foundation
 import UIKit
 

@@ -1,11 +1,3 @@
-//
-//  salesFunctions.swift
-//  InventoryManagement
-//
-//  Created by SunnyMac on 26/06/2019.
-//  Copyright © 2019 SunnyMac. All rights reserved.
-//
-
 import Foundation
 import UIKit
 import Alamofire
@@ -14,7 +6,7 @@ public class salesFunctions
 {
     let connections = staticLinks()
     var token:String?
-    var salesList = [sales?]()
+    var salesList = [completeSales?]()
     var userServices = userFunctions()
     
     
@@ -43,7 +35,7 @@ public class salesFunctions
             }
     }
     
-    func getSales(token:String, completion:@escaping(Bool?, [sales?]? , Error?)->Void)
+    func getSales(token:String, completion:@escaping(Bool?, [completeSales?]? , Error?)->Void)
     {
         let getSaleHeader:HTTPHeaders   = [
             "token":"\(token)",
@@ -67,11 +59,15 @@ public class salesFunctions
                 case .success               :   do
                                                     {
                                                         let json = try response.result.get() as! [String:Any]
+                                                        
+                                                        print("For Store: JSOn = \(json)")
+                                                        
+                                                        
                                                         let obj = json["data"] as! [Any]
                     
-                    
+                                                        //let saleData = obj["sale"] as! [Any]
+                                                        
                                                         print("For Store: Obj = \(obj)")
-                                                        print("For Store: JSOn = \(json)")
                                                         print("Result : \(response.result)")
                     
                                                         let jsonData = try! JSONSerialization.data(withJSONObject: obj, options: JSONSerialization.WritingOptions.prettyPrinted)
@@ -80,7 +76,7 @@ public class salesFunctions
                     
                                                         do
                                                             {
-                                                                self.salesList = try decoder.decode([sales].self, from: jsonData)
+                                                                self.salesList = try decoder.decode([completeSales].self, from: jsonData)
                                                                 //print("\n\(self.store.) ----- \(self.user!.name!) ----- \(self.user!.email!)")
                         
                                                                 print("SSSSSS \(self.salesList) SSSSSSSS")
