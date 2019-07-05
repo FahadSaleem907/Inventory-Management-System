@@ -11,7 +11,7 @@ public class productFunctions
     var userServices = userFunctions()
     
     
-    func addProduct(token:String)
+    func addProduct(token:String,product:products, completion:@escaping( Error? )->Void)
     {
         let addProductHeader:HTTPHeaders   = [
                                         "token":"\(token)",
@@ -31,9 +31,24 @@ public class productFunctions
         AF.request("https://app-inventory.herokuapp.com/AddProduts", method: .post, parameters: addProductParameter, encoding: JSONEncoding.default, headers: addProductHeader).responseJSON
             {
                 (response) in
-                
-                print("Response: \(String(describing: response.response))")
-                print("Result: \(String(describing: response.result))")
+                let encode = JSONEncoder()
+                encode.outputFormatting = .prettyPrinted
+                do
+                {
+                    let jsonData = try encode.encode(product)
+                    print(jsonData)
+                    
+                    if let jsonString = String(data: jsonData, encoding: .utf8)
+                    {
+                        print(jsonString)
+                    }
+                    completion( nil )
+                }
+                catch
+                {
+                    print(error.localizedDescription)
+                    completion(error)
+                }
             }
     }
     

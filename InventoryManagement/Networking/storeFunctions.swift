@@ -13,11 +13,8 @@ public class storeFunctions
     
     func addStore(token:String,store:stores, completion:@escaping( Error? )->Void)
     {
-        
-        
         let addStoreHeader:HTTPHeaders   = [
-                                        "token":"\(token)",
-                                        
+                                            "token":"\(token)",
                                             "Accept":"application/json"
                                            ]
         
@@ -45,7 +42,6 @@ public class storeFunctions
                 catch
                 {
                     print(error.localizedDescription)
-                    
                     completion(error)
                 }
             }
