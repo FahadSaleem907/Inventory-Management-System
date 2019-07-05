@@ -425,9 +425,9 @@
                                         <rect key="frame" x="4" y="2" width="241" height="535"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="GFk-LL-wDv">
-                                                <rect key="frame" x="24" y="188.5" width="193" height="158"/>
+                                                <rect key="frame" x="24" y="141.5" width="193" height="252"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Text Here" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="779-TU-HVO" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="779-TU-HVO" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="193" height="17"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -436,7 +436,7 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Text Here" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BYX-lc-xwg" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Manufacture" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZK-wn-ytq" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="47" width="193" height="17"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -445,7 +445,7 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Text Here" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9pN-Vi-WPe" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5I5-41-gT7" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="94" width="193" height="17"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -454,8 +454,26 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Text Here" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jCd-lI-Gvh" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Amount" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BYX-lc-xwg" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="141" width="193" height="17"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Quantity" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9pN-Vi-WPe" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="188" width="193" height="17"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jCd-lI-Gvh" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="235" width="193" height="17"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -568,7 +586,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b4q-eI-whk">
-                                <rect key="frame" x="0.0" y="143" width="414" height="719"/>
+                                <rect key="frame" x="0.0" y="133" width="414" height="729"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="197" id="7Jn-qn-q6X" customClass="StoreTableViewCell" customModule="InventoryManagement" customModuleProvider="target">
@@ -654,16 +672,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97247451543807983" green="0.9725908637046814" blue="0.97243505716323853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="b4q-eI-whk" firstAttribute="top" secondItem="hUp-2X-cBe" secondAttribute="bottom" constant="10" id="3pd-a7-1j2"/>
                             <constraint firstItem="hUp-2X-cBe" firstAttribute="height" secondItem="LNG-DN-Iqw" secondAttribute="height" multiplier="0.06" id="5pk-cq-SrV"/>
-                            <constraint firstItem="KWB-DJ-HSn" firstAttribute="bottom" secondItem="b4q-eI-whk" secondAttribute="bottom" id="DOh-Fj-anV"/>
-                            <constraint firstItem="b4q-eI-whk" firstAttribute="leading" secondItem="KWB-DJ-HSn" secondAttribute="leading" id="FOe-ob-0ib"/>
+                            <constraint firstItem="b4q-eI-whk" firstAttribute="trailing" secondItem="KWB-DJ-HSn" secondAttribute="trailing" id="DVG-Bk-nVv"/>
                             <constraint firstItem="hUp-2X-cBe" firstAttribute="top" secondItem="KWB-DJ-HSn" secondAttribute="top" constant="25" id="IF6-D4-UbC"/>
                             <constraint firstItem="hFh-Xz-QDj" firstAttribute="centerX" secondItem="KWB-DJ-HSn" secondAttribute="centerX" id="Jhh-XX-d2x"/>
                             <constraint firstItem="hUp-2X-cBe" firstAttribute="leading" secondItem="KWB-DJ-HSn" secondAttribute="leading" constant="15" id="Kcp-PQ-hfy"/>
                             <constraint firstItem="hFh-Xz-QDj" firstAttribute="top" secondItem="KWB-DJ-HSn" secondAttribute="top" constant="40" id="Kqz-Gq-pKu"/>
                             <constraint firstItem="hFh-Xz-QDj" firstAttribute="width" secondItem="LNG-DN-Iqw" secondAttribute="width" multiplier="0.5" id="PW7-9B-k9j"/>
-                            <constraint firstItem="b4q-eI-whk" firstAttribute="top" secondItem="hUp-2X-cBe" secondAttribute="bottom" constant="20" id="WHA-1S-lZJ"/>
-                            <constraint firstAttribute="trailing" secondItem="b4q-eI-whk" secondAttribute="trailing" id="wTi-aS-scU"/>
+                            <constraint firstItem="b4q-eI-whk" firstAttribute="leading" secondItem="KWB-DJ-HSn" secondAttribute="leading" id="osH-py-g9y"/>
+                            <constraint firstItem="b4q-eI-whk" firstAttribute="bottom" secondItem="KWB-DJ-HSn" secondAttribute="bottom" id="q1b-XD-b4P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KWB-DJ-HSn"/>
                     </view>
@@ -904,9 +922,9 @@
                                         <rect key="frame" x="4" y="2" width="241" height="535"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="2xY-DP-qS4">
-                                                <rect key="frame" x="24" y="188.5" width="193" height="158"/>
+                                                <rect key="frame" x="24" y="235.5" width="193" height="64"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Text Here" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b9a-OC-twy" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Store Name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e9R-D6-Dam" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="193" height="17"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -915,26 +933,8 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Text Here" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e9R-D6-Dam" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xb6-rG-C5O" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="47" width="193" height="17"/>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Text Here" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xb6-rG-C5O" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="94" width="193" height="17"/>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Text Here" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="92C-I2-Og5" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="141" width="193" height="17"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -964,6 +964,9 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect2" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="createStore:" destination="Dhg-rr-yCT" eventType="touchUpInside" id="C8t-is-zs0"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -1027,6 +1030,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AAi-kI-0Yj"/>
                     </view>
+                    <connections>
+                        <outlet property="location" destination="xb6-rG-C5O" id="799-s3-25W"/>
+                        <outlet property="storeName" destination="e9R-D6-Dam" id="tNa-Ji-UTy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IuE-OM-hts" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1056,9 +1063,9 @@
                                         <rect key="frame" x="4" y="2" width="241" height="535"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="TuY-zp-IpP">
-                                                <rect key="frame" x="24" y="188.5" width="193" height="158"/>
+                                                <rect key="frame" x="24" y="165" width="193" height="205"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Text Here" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v0u-AA-CXo" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Product ID" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v0u-AA-CXo" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="193" height="17"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1067,7 +1074,7 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Text Here" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vOn-Mi-PnP" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Sale ID" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vOn-Mi-PnP" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="47" width="193" height="17"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1076,7 +1083,7 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Text Here" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OyT-FD-Oy1" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Stock Sold" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OyT-FD-Oy1" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="94" width="193" height="17"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1085,8 +1092,17 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Text Here" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ES-Ll-B3W" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Quantity" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ES-Ll-B3W" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="141" width="193" height="17"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Sale Date" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="del-Lm-K4B" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="188" width="193" height="17"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>

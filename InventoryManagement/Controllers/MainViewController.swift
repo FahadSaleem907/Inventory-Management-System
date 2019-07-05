@@ -38,11 +38,11 @@ extension MainViewController : UITableViewDelegate , UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        if user == "false"
+        if user == "true"
         {
             count = adminMenuItems.count
         }
-        if user == "true"
+        if user == "false"
         {
             count = clientMenuItems.count
         }
@@ -52,7 +52,7 @@ extension MainViewController : UITableViewDelegate , UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MenuTableViewCell
-        if user == "false"
+        if user == "true"
         {
             cell.backgroundColor = UIColor.clear
             cell.layer.cornerRadius = 25
@@ -62,7 +62,7 @@ extension MainViewController : UITableViewDelegate , UITableViewDataSource
             cell.menuItem.textColor = UIColor.white
             cell.menuItem.text = "\(adminMenuItems[indexPath.row])"
         }
-        if user == "true"
+        if user == "false"
         {
             cell.backgroundColor = UIColor.clear
             cell.layer.cornerRadius = 25

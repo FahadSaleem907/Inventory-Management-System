@@ -3,8 +3,8 @@ import UIKit
 
 struct stores: Codable
 {
-    var location : String?
-    var storeName : String?
+    var location : String!
+    var storeName : String!
     var id : Int?
     
     enum CodingKeys: String, CodingKey
@@ -20,6 +20,12 @@ struct stores: Codable
             location    = try values.decodeIfPresent(String.self,   forKey: .location)
             storeName   = try values.decodeIfPresent(String.self,   forKey: .storeName)
             id          = try values.decodeIfPresent(Int.self,      forKey: .id)
+    }
+    
+    init( storename : String , location : String )
+    {
+        self.storeName = storename
+        self.location = location
     }
     
 }

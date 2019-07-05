@@ -11,8 +11,7 @@ public class storeFunctions
     var userServices = userFunctions()
     
     
-    
-    func addStore(token:String)
+    func addStore(token:String,store:stores, completion:@escaping( Error? )->Void)
     {
         
         
@@ -23,16 +22,32 @@ public class storeFunctions
                                            ]
         
         let addStoreParameter:Parameters = [
-                                            "storeName":"Galaxy computer",
-                                            "location":"technocity karachi"
+                                            "storeName":"\(store.storeName!)",
+                                            "location":"\(store.location!)"
                                            ]
         
         AF.request("https://app-inventory.herokuapp.com/addStores", method: .post, parameters: addStoreParameter, encoding: JSONEncoding.default, headers: addStoreHeader).responseJSON
             {
                 (response) in
-            
-                print("Response: \(String(describing: response.response))")
-                print("Result: \(String(describing: response.result))")
+                let encode = JSONEncoder()
+                encode.outputFormatting = .prettyPrinted
+                do
+                  {
+                        let jsonData = try encode.encode(store)
+                        print(jsonData)
+                    
+                        if let jsonString = String(data: jsonData, encoding: .utf8)
+                            {
+                                print(jsonString)
+                            }
+                    completion( nil )
+                  }
+                catch
+                {
+                    print(error.localizedDescription)
+                    
+                    completion(error)
+                }
             }
     }
     
