@@ -20,12 +20,12 @@ public class productFunctions
                                            ]
         
         let addProductParameter:Parameters = [
-                                              "name":"Dell",
-                                              "manufacture":"Dell",
-                                              "description":"Laptop",
-                                              "amount":60016,
-                                              "quantity":1616,
-                                              "date":"2016-10-10"
+                                              "name":"\(product.name!)",
+                                              "manufacture":"\(product.manufacture!)",
+                                              "description":"\(product.descriptionField!)",
+                                              "amount":product.amount!,
+                                              "quantity":product.quantity!,
+                                              "date":"\(product.date!)"
                                              ]
         
         AF.request("https://app-inventory.herokuapp.com/AddProduts", method: .post, parameters: addProductParameter, encoding: JSONEncoding.default, headers: addProductHeader).responseJSON
