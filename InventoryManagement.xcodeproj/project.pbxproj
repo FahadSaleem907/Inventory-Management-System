@@ -44,6 +44,7 @@
 		FA83DD3F22C7393D009F182E /* connections.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DD3E22C7393D009F182E /* connections.swift */; };
 		FA83DD4122C73B87009F182E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DD4022C73B87009F182E /* SignInViewController.swift */; };
 		FA83DD4322C73B9D009F182E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DD4222C73B9D009F182E /* SignUpViewController.swift */; };
+		FAAA180822D0B1F800AFD53A /* DateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA180722D0B1F800AFD53A /* DateTimeFormatter.swift */; };
 		FAF239C122CB4D49001C7F5A /* SignUpUserTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF239C022CB4D49001C7F5A /* SignUpUserTypeViewController.swift */; };
 		FAF239C322CB51F8001C7F5A /* designableUIView SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF239C222CB51F8001C7F5A /* designableUIView SegmentView.swift */; };
 		FAF9F25622CE270700FB712D /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9F25522CE270700FB712D /* ProductTableViewCell.swift */; };
@@ -116,6 +117,7 @@
 		FA83DD3E22C7393D009F182E /* connections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = connections.swift; sourceTree = "<group>"; };
 		FA83DD4022C73B87009F182E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		FA83DD4222C73B9D009F182E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		FAAA180722D0B1F800AFD53A /* DateTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeFormatter.swift; sourceTree = "<group>"; };
 		FAF239C022CB4D49001C7F5A /* SignUpUserTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserTypeViewController.swift; sourceTree = "<group>"; };
 		FAF239C222CB51F8001C7F5A /* designableUIView SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "designableUIView SegmentView.swift"; sourceTree = "<group>"; };
 		FAF9F25522CE270700FB712D /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				A31EAD0622B7807A00E65EC2 /* fancyTextField.swift */,
 				A31D9C4022B8FC5400648293 /* DesignableUILabel.swift */,
 				FAF239C222CB51F8001C7F5A /* designableUIView SegmentView.swift */,
+				FAAA180722D0B1F800AFD53A /* DateTimeFormatter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3014FBB22B4D6040080D8D9 /* MainViewController.swift in Sources */,
+				FAAA180822D0B1F800AFD53A /* DateTimeFormatter.swift in Sources */,
 				FAF9F25622CE270700FB712D /* ProductTableViewCell.swift in Sources */,
 				A3858AE922C0DB3E0067EE5B /* DashboardViewController.swift in Sources */,
 				A384E02B22C376F800897110 /* salesFunctions.swift in Sources */,

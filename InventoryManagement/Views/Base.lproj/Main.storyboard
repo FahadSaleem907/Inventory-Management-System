@@ -213,7 +213,7 @@
                                 <state key="normal" title="Forget your password? Click Here!"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ims1" translatesAutoresizingMaskIntoConstraints="NO" id="5gs-Ot-Azw">
-                                <rect key="frame" x="20.5" y="227" width="373" height="131"/>
+                                <rect key="frame" x="20.5" y="227" width="373.00000000000011" height="131"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5gs-Ot-Azw" secondAttribute="height" multiplier="372:131" id="XCQ-sP-fhv"/>
                                 </constraints>
@@ -494,6 +494,9 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect2" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="cancelBtnAction:" destination="FoQ-ta-hJI" eventType="touchUpInside" id="xY3-Kn-M9R"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebF-aE-nuH" customClass="designableUIButton" customModule="InventoryManagement" customModuleProvider="target">
                                                         <rect key="frame" x="92.5" y="0.0" width="72" height="27"/>
@@ -503,6 +506,9 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect2" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="saveBtnAction:" destination="FoQ-ta-hJI" eventType="touchUpInside" id="dHy-Ts-zf2"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -566,6 +572,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eYQ-lN-cdS"/>
                     </view>
+                    <connections>
+                        <outlet property="dateTxt" destination="jCd-lI-Gvh" id="0i5-FJ-kEO"/>
+                        <outlet property="productAmount" destination="BYX-lc-xwg" id="5f0-JI-dhh"/>
+                        <outlet property="productDescription" destination="5I5-41-gT7" id="QQv-EH-HrY"/>
+                        <outlet property="productManufacturer" destination="dZK-wn-ytq" id="dIi-9O-IUx"/>
+                        <outlet property="productName" destination="779-TU-HVO" id="YW2-Lx-kft"/>
+                        <outlet property="productQuantity" destination="9pN-Vi-WPe" id="gjs-J1-PFA"/>
+                        <outlet property="saveBtnOutlet" destination="ebF-aE-nuH" id="XrS-YG-Zua"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21e-KM-MkH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1131,6 +1146,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect2" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="cancelBtn:" destination="2hs-Bh-D0F" eventType="touchUpInside" id="rrH-iz-GCQ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZg-Mw-gQX" customClass="designableUIButton" customModule="InventoryManagement" customModuleProvider="target">
                                                 <rect key="frame" x="92.5" y="0.0" width="72" height="27"/>
@@ -1140,6 +1158,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect2" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="saveBtnAction:" destination="2hs-Bh-D0F" eventType="touchUpInside" id="wbc-uw-BQj"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -1189,6 +1210,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VUu-Hf-aPJ"/>
                     </view>
+                    <connections>
+                        <outlet property="dateTxt" destination="del-Lm-K4B" id="DTN-DB-GBc"/>
+                        <outlet property="productID" destination="v0u-AA-CXo" id="qtG-oz-Vaa"/>
+                        <outlet property="quantitySold" destination="8ES-Ll-B3W" id="pxy-A6-WEr"/>
+                        <outlet property="saleID" destination="vOn-Mi-PnP" id="763-Qw-n07"/>
+                        <outlet property="saveBtnOutlet" destination="eZg-Mw-gQX" id="s7p-JT-sce"/>
+                        <outlet property="stockSold" destination="OyT-FD-Oy1" id="64P-eK-g8a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUM-Px-EMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
