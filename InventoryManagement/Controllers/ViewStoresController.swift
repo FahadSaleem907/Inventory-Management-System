@@ -18,14 +18,9 @@ class ViewStoresController: UIViewController {
     func getData()
     {
         storeServices.getStores(token: self.delegate.mainToken!) { (success , storeList , error) in
-            
-            
             guard let storeList = storeList else { return }
-            
             print("++++++++++++++ \(storeList) ++++++++++++++")
-            
             self.finalData = storeList as! [Store]
-            
             self.storeTableView.reloadData()
         }
     }
@@ -57,10 +52,8 @@ extension ViewStoresController: UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! StoreTableViewCell
-        
         cell.storeName.text     = finalData[indexPath.row].storeName
         cell.storeLocation.text = finalData[indexPath.row].location
-        
         return cell
     }
     

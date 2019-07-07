@@ -18,7 +18,6 @@ class DashboardViewController: UIViewController
     {
         let getMenu = segue.destination as! UINavigationController
         let menu = getMenu.viewControllers.first as! MainViewController
-        
         menu.user = String(tmpRole!)
     }
     

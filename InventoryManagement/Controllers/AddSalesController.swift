@@ -39,12 +39,9 @@ class AddSalesController: UIViewController
         else
         {
             let sale1 = Sale( pid: Int(productID.text!)!, quantity: Int(quantitySold.text!)!, saledate: dateTxt.text!, stocksold: Int(stockSold.text!)!, storeid: Int(storeID.text!)!)
-            
             let completeSale1 = CompleteSale(sale: sale1)
-            
             print(completeSale1)
             print(sale1)
-            
             saleServices.addSales(token: self.delegate.mainToken! , sale: completeSale1)
             {
                 (error) in

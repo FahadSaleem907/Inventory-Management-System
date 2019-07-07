@@ -8,31 +8,22 @@ class ViewSalesController: UIViewController {
     
     @IBOutlet weak var saleTableView: UITableView!
     
-    
     @IBAction func backBtn(_ sender: UIButton)
     {
         navigationController?.popViewController(animated: true)
     }
     
-
     func getData()
     {
         salesServices.getSales(token: self.delegate.mainToken!)
         {
             (success , salesList , error) in
-            
-            
             guard let salesList = salesList else { return }
-            
             print("++++++++++++++ \(salesList) ++++++++++++++")
-            
             self.finalData = salesList as! [CompleteSale]
-            
             self.saleTableView.reloadData()
         }
     }
-    
-    
     
     override func viewDidLoad()
     {
@@ -53,9 +44,7 @@ extension ViewSalesController:UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! salesTableViewCell
-        
         cell.sale.text = String(finalData[indexPath.row].sale!.id!)
-        
         return cell
     }
     
@@ -73,19 +62,13 @@ extension ViewSalesController:UITableViewDelegate,UITableViewDataSource
     {
         let selectedIndex = indexPath
         let selectedCell = tableView.cellForRow(at: selectedIndex) as! salesTableViewCell
-        
         selectedCell.showDetailsOutlet.isHidden = false
-        
-        print("1")
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
     {
         let selectedIndex = indexPath
         let selectedCell = tableView.cellForRow(at: selectedIndex) as! salesTableViewCell
-        
         selectedCell.showDetailsOutlet.isHidden = true
-        
-        print("1")
     }
 }

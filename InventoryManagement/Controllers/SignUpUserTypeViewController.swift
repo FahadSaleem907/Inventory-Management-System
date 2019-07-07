@@ -8,11 +8,10 @@
 
 import UIKit
 
-class SignUpUserTypeViewController: UIViewController {
-    
+class SignUpUserTypeViewController: UIViewController
+{
     var user:User?
 
-    
     @IBAction func userType(_ sender: UISegmentedControl)
     {
         if userTypeOut.selectedSegmentIndex == 0
@@ -31,8 +30,6 @@ class SignUpUserTypeViewController: UIViewController {
     }
     
     @IBOutlet weak var userTypeOut: UISegmentedControl!
-    
-    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
@@ -87,12 +84,8 @@ extension SignUpUserTypeViewController
         let buttonNo = UIAlertAction(title: "No", style: .default) { (_) in
             self.dismiss(animated: true, completion: nil)
         }
-        
         alertValidation.addAction(buttonYes)
         alertValidation.addAction(buttonNo)
-        
         present(alertValidation, animated: true, completion: nil)
-        
-        
     }
 }

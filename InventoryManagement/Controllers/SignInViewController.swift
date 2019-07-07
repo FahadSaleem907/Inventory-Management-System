@@ -5,50 +5,37 @@ class SignInViewController: UIViewController {
 
     var role:Bool = false
     let delegate = UIApplication.shared.delegate as! AppDelegate
+    let userServices = userFunctions()
     
     @IBOutlet weak var emailTxtOut: fancyTextField!
     @IBOutlet weak var pwTxtOut: fancyTextField!
-    
-    
     
     @IBAction func loginBtn(_ sender: UIButton)
     {
         
         if emailTxtOut.text?.isEmpty == true
         {
-            
             alert(msg: "Email missing. Enter Email.", controller: self, textField: emailTxtOut)
         }
-        
         else if pwTxtOut.text?.isEmpty == true
         {
             alert(msg: "Password missing. Enter Password", controller: self, textField: pwTxtOut)
         }
-        
         else
         {
             let progressView = RSLoadingView()
             userServices.token = ""
-    
             progressView.show(on: self.view)
             userServices.login(email: "\(emailTxtOut.text!)", password: "\(pwTxtOut.text!)")
             {
                 (success, user , token, error) in
-                
-                
                     if success == true
                     {
                         guard let token = token else { return }
                         guard let user = user else { return }
-                        
-                        //self.delegate.mainToken = token
-                        //self.delegate.currentUser = user
-                        
-                        //print(token)
                         print(user)
                         self.role = user.role!
                         print(user.role!)
-                        
                         if self.userServices.token != ""
                         {
                             self.performSegue(withIdentifier: "loginScreen", sender: self)
@@ -58,7 +45,6 @@ class SignInViewController: UIViewController {
                             progressView.hide()
                             return
                         }
-                        //progressView.hide()
                     }
                     else if let error = error
                     {
@@ -76,18 +62,12 @@ class SignInViewController: UIViewController {
         performSegue(withIdentifier: "userTypeScreen", sender: self)
     }
     
-    
-    let userServices = userFunctions()
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        
         if segue.identifier == "loginScreen"
         {
         let getDashboard = segue.destination as! UINavigationController
         let dashboard = getDashboard.viewControllers.first as! DashboardViewController
-
         print(role)
         dashboard.tmpRole = role
         }
@@ -104,52 +84,33 @@ class SignInViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
-        //userServices.login(email: "fahad@saleem.com", password: "123")
         
         emailTxtOut.text = "test@test.com"
         pwTxtOut.text = "123"
         print(userServices.token + "----------------------------")
         
     }
-    
-
-   
-
 }
 
 extension SignInViewController
 {
     func alert(msg:String , controller:UIViewController, textField:UITextField)
     {
-        
         let alertValidation = UIAlertController(title: "Error", message: msg, preferredStyle: .alert)
-        
         let buttonOK = UIAlertAction(title: "Okay", style: .default)
         {
             (_) in textField.becomeFirstResponder()
         }
-        
         alertValidation.addAction(buttonOK)
-        
-        
         present(alertValidation, animated: true, completion: nil)
-        
     }
     
     
     func alertSegue(msg:String , controller:UIViewController)
     {
-        
         let alertValidation = UIAlertController(title: "Welcome", message: msg, preferredStyle: .alert)
-        
         let buttonOK = UIAlertAction(title: "Okay", style: .default, handler: {_ in self.performSegue(withIdentifier: "loginScreen", sender: self) })
-       
-        
         alertValidation.addAction(buttonOK)
-        
-        
         present(alertValidation, animated: true, completion: nil)
-        
     }
 }

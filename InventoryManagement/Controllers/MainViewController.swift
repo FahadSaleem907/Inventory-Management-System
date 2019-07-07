@@ -31,6 +31,26 @@ class MainViewController: UIViewController
         menuView.layer.shadowOpacity = 1
         navigationController?.isNavigationBarHidden = true
         
+        
+        
+        //let delegate = UIApplication.shared.delegate as! AppDelegate
+        //let storeService = storeFunctions()
+        //let productService = productFunctions()
+//        storeService.getOneStores(token: delegate.mainToken!, storeID: 35) { (success, selectedStore, error) in
+//            guard let selectedStore = selectedStore else { return }
+//            print("======================")
+//            print(selectedStore)
+//            print("======================")
+//        }
+        
+        
+//        productService.getOneProduct(token: delegate.mainToken!, productID: 33) { (success, selectedProduct, error) in
+//            guard let selectedProduct = selectedProduct else { return }
+//            print("======================")
+//            print(selectedProduct)
+//            print("======================")
+//        }
+        
         }
 }
 
@@ -57,7 +77,6 @@ extension MainViewController : UITableViewDelegate , UITableViewDataSource
             cell.backgroundColor = UIColor.clear
             cell.layer.cornerRadius = 25
             cell.layer.masksToBounds = true
-            
             cell.menuItem.backgroundColor = #colorLiteral(red: 0.8039215686, green: 0.8039215686, blue: 0.8039215686, alpha: 1)
             cell.menuItem.textColor = UIColor.white
             cell.menuItem.text = "\(adminMenuItems[indexPath.row])"
@@ -67,7 +86,6 @@ extension MainViewController : UITableViewDelegate , UITableViewDataSource
             cell.backgroundColor = UIColor.clear
             cell.layer.cornerRadius = 25
             cell.layer.masksToBounds = true
-            
             cell.menuItem.backgroundColor = #colorLiteral(red: 0.8039215686, green: 0.8039215686, blue: 0.8039215686, alpha: 1)
             cell.menuItem.textColor = UIColor.white
             cell.menuItem.text = "\(clientMenuItems[indexPath.row])"

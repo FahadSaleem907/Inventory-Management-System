@@ -6,10 +6,7 @@ class ViewStocksController: UIViewController {
     var productServices = productFunctions()
     let delegate = UIApplication.shared.delegate as! AppDelegate
     
-    
-    
     @IBOutlet weak var stockTableView: UITableView!
-    
     
     @IBAction func backButton(_ sender: UIButton)
     {
@@ -21,10 +18,7 @@ class ViewStocksController: UIViewController {
         productServices.getProduct(token: self.delegate.mainToken!)
         {
             (success, productList, error) in
-            
-            
             guard let productList = productList else { return }
-            
             print("++++++++++++++ \(productList) ++++++++++++++")
             self.finalData = productList as! [Product]
             self.stockTableView.reloadData()
@@ -51,9 +45,7 @@ extension ViewStocksController:UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ProductTableViewCell
-        
         cell.productName.text = finalData[indexPath.row].name
-        
         return cell
     }
     
@@ -71,19 +63,13 @@ extension ViewStocksController:UITableViewDelegate,UITableViewDataSource
     {
         let selectedIndex = indexPath
         let selectedCell = tableView.cellForRow(at: selectedIndex) as! ProductTableViewCell
-        
         selectedCell.productDetailsOutlet.isHidden = false
-        
-        print("1")
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
     {
         let selectedIndex = indexPath
         let selectedCell = tableView.cellForRow(at: selectedIndex) as! ProductTableViewCell
-        
         selectedCell.productDetailsOutlet.isHidden = true
-        
-        print("2")
     }
 }

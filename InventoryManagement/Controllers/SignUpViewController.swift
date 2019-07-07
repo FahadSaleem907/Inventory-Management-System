@@ -46,18 +46,12 @@ extension SignUpViewController
 {
     func alert(msg:String , controller:UIViewController, textField:UITextField)
     {
-        
         let alertValidation = UIAlertController(title: "Error", message: msg, preferredStyle: .alert)
-        
         let buttonOK = UIAlertAction(title: "Okay", style: .default)
         {
             (_) in textField.becomeFirstResponder()
         }
-        
         alertValidation.addAction(buttonOK)
-        
-        
         present(alertValidation, animated: true, completion: nil)
-        
     }
 }

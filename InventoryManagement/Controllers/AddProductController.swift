@@ -6,8 +6,6 @@ class AddProductController: UIViewController
     let productServices = productFunctions()
     let delegate = UIApplication.shared.delegate as! AppDelegate
     
-    
-    
     @IBOutlet weak var productName: fancyTextField!
     @IBOutlet weak var productManufacturer: fancyTextField!
     @IBOutlet weak var productDescription: fancyTextField!
@@ -46,9 +44,7 @@ class AddProductController: UIViewController
         else
         {
             let product1 = Product(productname: productName.text!, productmanufacturer: productManufacturer.text!, productdescription: productDescription.text!, productamount: Int(productAmount.text!)!, productquantity: Int(productQuantity.text!)!, productdate: dateTxt.text!)
-
             print(product1)
-            
             productServices.addProduct(token: self.delegate.mainToken!, product: product1)
             {
                 (error) in

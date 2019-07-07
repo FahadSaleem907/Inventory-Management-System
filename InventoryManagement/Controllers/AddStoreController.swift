@@ -25,8 +25,9 @@ class addStoreController : UIViewController
         {
             let store1 = Store(storename: storeName.text!, location: location.text!)
             print(store1)
-            storeService.addStore(token: self.delegate.mainToken!, store: store1) { (error) in
-                
+            storeService.addStore(token: self.delegate.mainToken!, store: store1)
+            {
+                (error) in
                 if error == nil
                 {
                     self.successAlert(msg: "Store Create Successfully", controller: self)
@@ -60,7 +61,6 @@ extension addStoreController
 {
     func alert(msg:String , controller:UIViewController, textField:UITextField)
     {
-        
         let alertValidation = UIAlertController(title: "Error", message: msg, preferredStyle: .alert)
         let buttonOK = UIAlertAction(title: "Okay", style: .default)
         {
@@ -68,7 +68,6 @@ extension addStoreController
         }
         alertValidation.addAction(buttonOK)
         present(alertValidation, animated: true, completion: nil)
-        
     }
     
     func successAlert(msg:String , controller:UIViewController)

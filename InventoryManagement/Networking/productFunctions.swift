@@ -9,6 +9,8 @@ public class productFunctions
     var token:String?
     var productList = [Product?]()
     var userServices = userFunctions()
+    var selectedProduct:Product?
+    var product1:[String:Any]?
     
     
     func addProduct(token:String,product:Product, completion:@escaping( Error? )->Void)
@@ -83,35 +85,25 @@ public class productFunctions
                                                     {
                                                         let json = try response.result.get() as! [String:Any]
                                                         let obj = json["data"] as! [Any]
-                    
-                    
                                                         print("For Store: Obj = \(obj)")
                                                         print("For Store: JSOn = \(json)")
                                                         print("Result : \(response.result)")
-                    
                                                         let jsonData = try! JSONSerialization.data(withJSONObject: obj, options: JSONSerialization.WritingOptions.prettyPrinted)
-                    
                                                         let decoder = JSONDecoder()
-                    
                                                         do
                                                             {
                                                                 self.productList = try decoder.decode([Product].self, from: jsonData)
-                        //print("\n\(self.store.) ----- \(self.user!.name!) ----- \(self.user!.email!)")
-                        
                                                                 print("SSSSSS \(self.productList) SSSSSSSS")
                                                             }
                                                             catch
                                                             {
                                                                 print(error.localizedDescription)
                                                             }
-                    
                                                     completion( true, self.productList , nil )
                                                     }
-                    
                                                     catch
                                                     {
                                                         print("Login failed. \(error.localizedDescription)")
-                    
                                                         completion( nil , nil , error )
                                                     }
                     }
@@ -144,6 +136,65 @@ public class productFunctions
                 print("Result: \(String(describing: response.result))")
         }
     }
+    
+    
+    func getOneProduct(token:String, productID: Int?, completion:@escaping(Bool?, Product? , Error?)->Void)
+    {
+        let getStoreHeader:HTTPHeaders   = [
+            "token":"\(token)",
+            
+            "Accept":"application/json"
+        ]
+        
+        
+        AF.request("\(connections.getProduct)", method: .get, encoding: JSONEncoding.default, headers: getStoreHeader).responseJSON
+            {
+                (response) in
+                
+                switch response.result
+                {
+                case .failure(let error)    :   print(error.localizedDescription)
+                    
+                case .success               :   do
+                {
+                    let json = try response.result.get() as! [String:Any]
+                    let obj = json["data"] as! [Any]
+                    print("For Store: Obj = \(obj)")
+                    for i in obj
+                    {
+                        let products = i as! [String:Any]
+                        let productssID = products["id"] as! Int
+                        if productssID == productID
+                        {
+                            self.product1 = products
+                        }
+                        else
+                        {
+                            print("no such id")
+                        }
+                    }
+                    let jsonData = try! JSONSerialization.data(withJSONObject: self.product1, options: JSONSerialization.WritingOptions.prettyPrinted)
+                    let decoder = JSONDecoder()
+                    do
+                    {
+                        self.selectedProduct = try decoder.decode(Product.self, from: jsonData)
+                    }
+                    catch
+                    {
+                        print(error.localizedDescription)
+                    }
+                    
+                    completion( true, self.selectedProduct , nil )
+                }
+                catch
+                {
+                    print("Login failed. \(error.localizedDescription)")
+                    completion( nil , nil , error )
+                    }
+                }
+        }
+    }
+    
     
     func deleteProduct()
     {
