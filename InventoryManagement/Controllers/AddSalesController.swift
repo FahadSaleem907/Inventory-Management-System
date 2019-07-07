@@ -5,9 +5,10 @@ class AddSalesController: UIViewController
 
     var datePicker = UIDatePicker()
     let delegate = UIApplication.shared.delegate as! AppDelegate
+    let saleServices = salesFunctions()
     
     @IBOutlet weak var productID: fancyTextField!
-    @IBOutlet weak var saleID: fancyTextField!
+    @IBOutlet weak var storeID: fancyTextField!
     @IBOutlet weak var quantitySold: fancyTextField!
     @IBOutlet weak var stockSold: fancyTextField!
     @IBOutlet weak var dateTxt: fancyTextField!
@@ -15,7 +16,48 @@ class AddSalesController: UIViewController
     
     @IBAction func saveBtnAction(_ sender: designableUIButton)
     {
-        
+        if productID.text?.isEmpty == true
+        {
+            alert(msg: "Product ID Missing. \nEnter Product ID.", controller: self, textField: productID)
+        }
+        else if storeID.text?.isEmpty == true
+        {
+            alert(msg: "Sale ID Missing. \nEnter Sale ID.", controller: self, textField: storeID)
+        }
+        else if quantitySold.text?.isEmpty == true
+        {
+            alert(msg: "Quantity Sold Missing. \nEnter Quantity Sold.", controller: self, textField: quantitySold)
+        }
+        else if stockSold.text?.isEmpty == true
+        {
+            alert(msg: "Stock Sold Missing. \nEnter Stock Sold.", controller: self, textField: stockSold)
+        }
+        else if dateTxt.text?.isEmpty == true
+        {
+            alert(msg: "Date Missing. \nEnter Date.", controller: self, textField: dateTxt)
+        }
+        else
+        {
+            let sale1 = sales( pid: Int(productID.text!)!, quantity: Int(quantitySold.text!)!, saledate: dateTxt.text!, stocksold: Int(stockSold.text!)!, storeid: Int(storeID.text!)!)
+            
+            let completeSale1 = completeSales(sale: sale1)
+            
+            print(completeSale1)
+            print(sale1)
+            
+            saleServices.addSales(token: self.delegate.mainToken! , sale: completeSale1)
+            {
+                (error) in
+                if error == nil
+                {
+                    self.successAlert(msg: "Store Create Successfully", controller: self)
+                }
+                else
+                {
+                    print(error?.localizedDescription)
+                }
+            }
+        }
     }
     
     @IBAction func cancelBtn(_ sender: designableUIButton)
@@ -76,4 +118,27 @@ extension AddSalesController
     {
         view.endEditing(true)
     }
+    
+    
+    func alert(msg:String , controller:UIViewController, textField:UITextField)
+    {
+        
+        let alertValidation = UIAlertController(title: "Error", message: msg, preferredStyle: .alert)
+        let buttonOK = UIAlertAction(title: "Okay", style: .default)
+        {
+            (_) in textField.becomeFirstResponder()
+        }
+        alertValidation.addAction(buttonOK)
+        present(alertValidation, animated: true, completion: nil)
+        
+    }
+    
+    func successAlert(msg:String , controller:UIViewController)
+    {
+        let alertValidation = UIAlertController(title: "Success", message: msg, preferredStyle: .alert)
+        let buttonOK = UIAlertAction(title: "Okay", style: .default, handler: {_ in self.navigationController?.popViewController(animated: true) })
+        alertValidation.addAction(buttonOK)
+        present(alertValidation, animated: true, completion: nil)
+    }
 }
+

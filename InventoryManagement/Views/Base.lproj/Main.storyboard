@@ -1089,7 +1089,7 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Sale ID" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vOn-Mi-PnP" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Store ID" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vOn-Mi-PnP" customClass="fancyTextField" customModule="InventoryManagement" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="47" width="193" height="17"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1214,9 +1214,9 @@
                         <outlet property="dateTxt" destination="del-Lm-K4B" id="DTN-DB-GBc"/>
                         <outlet property="productID" destination="v0u-AA-CXo" id="qtG-oz-Vaa"/>
                         <outlet property="quantitySold" destination="8ES-Ll-B3W" id="pxy-A6-WEr"/>
-                        <outlet property="saleID" destination="vOn-Mi-PnP" id="763-Qw-n07"/>
                         <outlet property="saveBtnOutlet" destination="eZg-Mw-gQX" id="s7p-JT-sce"/>
                         <outlet property="stockSold" destination="OyT-FD-Oy1" id="64P-eK-g8a"/>
+                        <outlet property="storeID" destination="vOn-Mi-PnP" id="nPo-wV-e45"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUM-Px-EMA" userLabel="First Responder" sceneMemberID="firstResponder"/>

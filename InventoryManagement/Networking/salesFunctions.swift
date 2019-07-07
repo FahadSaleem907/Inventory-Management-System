@@ -10,30 +10,48 @@ public class salesFunctions
     var userServices = userFunctions()
     
     
-    func addSales()
+    func addSales(token:String,sale:completeSales, completion:@escaping( Error? )->Void)
     {
         let addSaleHeader:HTTPHeaders   = [
-            "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTksImV4cCI6MTU2MTU1NTgwM30.3hk2K2aO9z4PvBjz6NDmJP7KDP_G46zmdlmi5q2B9_k",
+            "token":"\(token)",
             
             "Accept":"application/json"
         ]
         
         let addSaleParameter:Parameters = [
-                                                "pid":1,
-                                                "sid":1,
-                                                "saleDate":"2017-03-23",
-                                                "quantity":80,
-                                                "stockSold":0
+                                                "pid":sale.sale?.pid,
+                                                "sid":sale.sale?.storeID,
+                                                "saleDate":"\(sale.sale?.saleDate)",
+                                                "quantity":sale.sale?.quantity,
+                                                "stockSold":sale.sale?.stockSold
                                              ]
         
         AF.request("\(connections.addSale)", method: .post, parameters: addSaleParameter, encoding: JSONEncoding.default, headers: addSaleHeader).responseJSON
             {
                 (response) in
                 
-                print("Response: \(String(describing: response.response))")
-                print("Result: \(String(describing: response.result))")
+                let encode = JSONEncoder()
+                encode.outputFormatting = .prettyPrinted
+                do
+                {
+                    let jsonData = try encode.encode(sale)
+                    print(jsonData)
+                    
+                    if let jsonString = String(data: jsonData, encoding: .utf8)
+                    {
+                        print(jsonString)
+                    }
+                    completion( nil )
+                }
+                catch
+                {
+                    print(error.localizedDescription)
+                    completion(error)
+                }
             }
     }
+    
+    
     
     func getSales(token:String, completion:@escaping(Bool?, [completeSales?]? , Error?)->Void)
     {

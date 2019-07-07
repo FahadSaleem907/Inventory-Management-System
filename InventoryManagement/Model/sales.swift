@@ -24,14 +24,23 @@ struct sales: Codable
     
     init(from decoder: Decoder) throws
     {
-        let values      = try decoder.container(keyedBy: CodingKeys.self)
-            id          = try values.decodeIfPresent(Int.self, forKey: .id)
-            pid         = try values.decodeIfPresent(Int.self, forKey: .pid)
-            quantity    = try values.decodeIfPresent(Int.self, forKey: .quantity)
-            saleDate    = try values.decodeIfPresent(String.self, forKey: .saleDate)
-            storeID     = try values.decodeIfPresent(Int.self, forKey: .storeID)
-            stockSold   = try values.decodeIfPresent(Int.self, forKey: .stockSold)
-            totalAmount   = try values.decodeIfPresent(Int.self, forKey: .totalAmount)
+        let values          = try decoder.container(keyedBy: CodingKeys.self)
+            id              = try values.decodeIfPresent(Int.self, forKey: .id)
+            pid             = try values.decodeIfPresent(Int.self, forKey: .pid)
+            quantity        = try values.decodeIfPresent(Int.self, forKey: .quantity)
+            saleDate        = try values.decodeIfPresent(String.self, forKey: .saleDate)
+            storeID         = try values.decodeIfPresent(Int.self, forKey: .storeID)
+            stockSold       = try values.decodeIfPresent(Int.self, forKey: .stockSold)
+            totalAmount     = try values.decodeIfPresent(Int.self, forKey: .totalAmount)
+    }
+    
+    init( pid : Int , quantity : Int , saledate : String , stocksold : Int , storeid : Int)
+    {
+        self.pid        = pid
+        self.quantity   = quantity
+        self.saleDate   = saledate
+        self.stockSold  = stocksold
+        self.storeID    = storeid
     }
 }
 
@@ -57,5 +66,13 @@ struct completeSales : Codable
             sale            = try values.decodeIfPresent(sales.self, forKey: .sale)
             storeLocation   = try values.decodeIfPresent(String.self, forKey: .storeLocation)
             storeName       = try values.decodeIfPresent(String.self, forKey: .storeName)
+    }
+    
+    init( sale : sales )
+    {
+        //self.productName = productname
+        self.sale = sale
+        //self.storeLocation = storelocation
+        //self.storeName = storename
     }
 }
