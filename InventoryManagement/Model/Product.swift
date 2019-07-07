@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-struct products: Codable
+struct Product: Codable
 {
     var amount : Int?
     var date : String?

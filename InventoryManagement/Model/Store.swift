@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-struct stores: Codable
+struct Store: Codable
 {
     var location : String!
     var storeName : String!

@@ -10,7 +10,7 @@ import UIKit
 
 class SignUpUserTypeViewController: UIViewController {
     
-    var user:users?
+    var user:User?
 
     
     @IBAction func userType(_ sender: UISegmentedControl)

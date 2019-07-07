@@ -30,10 +30,10 @@
 		A31EAD1622B79C5D00E65EC2 /* ViewSalesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31EAD1522B79C5D00E65EC2 /* ViewSalesController.swift */; };
 		A384E01F22C36F9500897110 /* storeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384E01E22C36F9500897110 /* storeFunctions.swift */; };
 		A384E02122C36FD000897110 /* userFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384E02022C36FD000897110 /* userFunctions.swift */; };
-		A384E02322C36FFB00897110 /* products.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384E02222C36FFB00897110 /* products.swift */; };
-		A384E02522C3701200897110 /* stores.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384E02422C3701200897110 /* stores.swift */; };
-		A384E02722C3702000897110 /* users.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384E02622C3702000897110 /* users.swift */; };
-		A384E02922C376C600897110 /* sales.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384E02822C376C600897110 /* sales.swift */; };
+		A384E02322C36FFB00897110 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384E02222C36FFB00897110 /* Product.swift */; };
+		A384E02522C3701200897110 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384E02422C3701200897110 /* Store.swift */; };
+		A384E02722C3702000897110 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384E02622C3702000897110 /* User.swift */; };
+		A384E02922C376C600897110 /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384E02822C376C600897110 /* Sale.swift */; };
 		A384E02B22C376F800897110 /* salesFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384E02A22C376F800897110 /* salesFunctions.swift */; };
 		A3858AE922C0DB3E0067EE5B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3858AE822C0DB3E0067EE5B /* DashboardViewController.swift */; };
 		A3858AEC22C0F8FE0067EE5B /* productFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3858AEB22C0F8FE0067EE5B /* productFunctions.swift */; };
@@ -100,10 +100,10 @@
 		A31EAD1522B79C5D00E65EC2 /* ViewSalesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSalesController.swift; sourceTree = "<group>"; };
 		A384E01E22C36F9500897110 /* storeFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storeFunctions.swift; sourceTree = "<group>"; };
 		A384E02022C36FD000897110 /* userFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userFunctions.swift; sourceTree = "<group>"; };
-		A384E02222C36FFB00897110 /* products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = products.swift; sourceTree = "<group>"; };
-		A384E02422C3701200897110 /* stores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stores.swift; sourceTree = "<group>"; };
-		A384E02622C3702000897110 /* users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = users.swift; sourceTree = "<group>"; };
-		A384E02822C376C600897110 /* sales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sales.swift; sourceTree = "<group>"; };
+		A384E02222C36FFB00897110 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		A384E02422C3701200897110 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		A384E02622C3702000897110 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A384E02822C376C600897110 /* Sale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sale.swift; sourceTree = "<group>"; };
 		A384E02A22C376F800897110 /* salesFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = salesFunctions.swift; sourceTree = "<group>"; };
 		A3858AE822C0DB3E0067EE5B /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		A3858AEB22C0F8FE0067EE5B /* productFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productFunctions.swift; sourceTree = "<group>"; };
@@ -281,10 +281,10 @@
 		A384E01D22C36F6C00897110 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A384E02222C36FFB00897110 /* products.swift */,
-				A384E02422C3701200897110 /* stores.swift */,
-				A384E02622C3702000897110 /* users.swift */,
-				A384E02822C376C600897110 /* sales.swift */,
+				A384E02222C36FFB00897110 /* Product.swift */,
+				A384E02422C3701200897110 /* Store.swift */,
+				A384E02622C3702000897110 /* User.swift */,
+				A384E02822C376C600897110 /* Sale.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -533,10 +533,10 @@
 				A31D9C4122B8FC5400648293 /* DesignableUILabel.swift in Sources */,
 				A31EAD0E22B79BB500E65EC2 /* AddProductController.swift in Sources */,
 				A3014FB922B4D6040080D8D9 /* AppDelegate.swift in Sources */,
-				A384E02922C376C600897110 /* sales.swift in Sources */,
+				A384E02922C376C600897110 /* Sale.swift in Sources */,
 				A3014FE822B4E1D30080D8D9 /* DesignableImageView.swift in Sources */,
 				FAF239C122CB4D49001C7F5A /* SignUpUserTypeViewController.swift in Sources */,
-				A384E02522C3701200897110 /* stores.swift in Sources */,
+				A384E02522C3701200897110 /* Store.swift in Sources */,
 				A3858AEC22C0F8FE0067EE5B /* productFunctions.swift in Sources */,
 				FAF239C322CB51F8001C7F5A /* designableUIView SegmentView.swift in Sources */,
 				A31EAD1622B79C5D00E65EC2 /* ViewSalesController.swift in Sources */,
@@ -546,9 +546,9 @@
 				FA83DD3F22C7393D009F182E /* connections.swift in Sources */,
 				A31EAD1022B79BF600E65EC2 /* AddSalesController.swift in Sources */,
 				A3014FEA22B4E5710080D8D9 /* DesignableButton.swift in Sources */,
-				A384E02722C3702000897110 /* users.swift in Sources */,
+				A384E02722C3702000897110 /* User.swift in Sources */,
 				FA83DD4122C73B87009F182E /* SignInViewController.swift in Sources */,
-				A384E02322C36FFB00897110 /* products.swift in Sources */,
+				A384E02322C36FFB00897110 /* Product.swift in Sources */,
 				A384E02122C36FD000897110 /* userFunctions.swift in Sources */,
 				A31EAD0C22B791BC00E65EC2 /* AddStoreController.swift in Sources */,
 				A3B1422922CE5069001FF87A /* productDetailsViewController.swift in Sources */,

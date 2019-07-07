@@ -6,11 +6,11 @@ public class salesFunctions
 {
     let connections = staticLinks()
     var token:String?
-    var salesList = [completeSales?]()
+    var salesList = [CompleteSale?]()
     var userServices = userFunctions()
     
     
-    func addSales(token:String,sale:completeSales, completion:@escaping( Error? )->Void)
+    func addSales(token:String,sale:CompleteSale, completion:@escaping( Error? )->Void)
     {
         let addSaleHeader:HTTPHeaders   = [
             "token":"\(token)",
@@ -53,7 +53,7 @@ public class salesFunctions
     
     
     
-    func getSales(token:String, completion:@escaping(Bool?, [completeSales?]? , Error?)->Void)
+    func getSales(token:String, completion:@escaping(Bool?, [CompleteSale?]? , Error?)->Void)
     {
         let getSaleHeader:HTTPHeaders   = [
             "token":"\(token)",
@@ -94,7 +94,7 @@ public class salesFunctions
                     
                                                         do
                                                             {
-                                                                self.salesList = try decoder.decode([completeSales].self, from: jsonData)
+                                                                self.salesList = try decoder.decode([CompleteSale].self, from: jsonData)
                                                                 //print("\n\(self.store.) ----- \(self.user!.name!) ----- \(self.user!.email!)")
                         
                                                                 print("SSSSSS \(self.salesList) SSSSSSSS")

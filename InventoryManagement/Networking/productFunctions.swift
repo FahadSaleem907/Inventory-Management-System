@@ -7,11 +7,11 @@ public class productFunctions
     
     let connections = staticLinks()
     var token:String?
-    var productList = [products?]()
+    var productList = [Product?]()
     var userServices = userFunctions()
     
     
-    func addProduct(token:String,product:products, completion:@escaping( Error? )->Void)
+    func addProduct(token:String,product:Product, completion:@escaping( Error? )->Void)
     {
         let addProductHeader:HTTPHeaders   = [
                                         "token":"\(token)",
@@ -52,7 +52,7 @@ public class productFunctions
             }
     }
     
-    func getProduct(token:String, completion:@escaping(Bool?, [products?]? , Error?)->Void)
+    func getProduct(token:String, completion:@escaping(Bool?, [Product?]? , Error?)->Void)
     {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         
@@ -95,7 +95,7 @@ public class productFunctions
                     
                                                         do
                                                             {
-                                                                self.productList = try decoder.decode([products].self, from: jsonData)
+                                                                self.productList = try decoder.decode([Product].self, from: jsonData)
                         //print("\n\(self.store.) ----- \(self.user!.name!) ----- \(self.user!.email!)")
                         
                                                                 print("SSSSSS \(self.productList) SSSSSSSS")

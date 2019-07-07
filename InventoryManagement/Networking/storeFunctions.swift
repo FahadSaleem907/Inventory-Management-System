@@ -7,11 +7,11 @@ public class storeFunctions
     
     let connections = staticLinks()
     var token:String?
-    var storeList = [stores?]()
+    var storeList = [Store?]()
     var userServices = userFunctions()
     
     
-    func addStore(token:String,store:stores, completion:@escaping( Error? )->Void)
+    func addStore(token:String,store:Store, completion:@escaping( Error? )->Void)
     {
         let addStoreHeader:HTTPHeaders   = [
                                             "token":"\(token)",
@@ -48,7 +48,7 @@ public class storeFunctions
     }
     
     
-    func getStores(token:String, completion:@escaping(Bool?, [stores?]? , Error?)->Void)
+    func getStores(token:String, completion:@escaping(Bool?, [Store?]? , Error?)->Void)
     {
         let getStoreHeader:HTTPHeaders   = [
                                         "token":"\(token)",
@@ -83,7 +83,7 @@ public class storeFunctions
                                                     
                                                     do
                                                     {
-                                                        self.storeList = try decoder.decode([stores].self, from: jsonData)
+                                                        self.storeList = try decoder.decode([Store].self, from: jsonData)
                                                         //print("\n\(self.store.) ----- \(self.user!.name!) ----- \(self.user!.email!)")
                                                         
                                                     }

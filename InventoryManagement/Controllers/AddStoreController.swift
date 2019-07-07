@@ -23,7 +23,7 @@ class addStoreController : UIViewController
         }
         else
         {
-            let store1 = stores(storename: storeName.text!, location: location.text!)
+            let store1 = Store(storename: storeName.text!, location: location.text!)
             print(store1)
             storeService.addStore(token: self.delegate.mainToken!, store: store1) { (error) in
                 

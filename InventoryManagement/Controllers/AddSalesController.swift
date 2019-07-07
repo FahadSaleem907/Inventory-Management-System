@@ -38,9 +38,9 @@ class AddSalesController: UIViewController
         }
         else
         {
-            let sale1 = sales( pid: Int(productID.text!)!, quantity: Int(quantitySold.text!)!, saledate: dateTxt.text!, stocksold: Int(stockSold.text!)!, storeid: Int(storeID.text!)!)
+            let sale1 = Sale( pid: Int(productID.text!)!, quantity: Int(quantitySold.text!)!, saledate: dateTxt.text!, stocksold: Int(stockSold.text!)!, storeid: Int(storeID.text!)!)
             
-            let completeSale1 = completeSales(sale: sale1)
+            let completeSale1 = CompleteSale(sale: sale1)
             
             print(completeSale1)
             print(sale1)
@@ -77,6 +77,9 @@ class AddSalesController: UIViewController
 
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.title = "Inventory Management System"
+        
+        showDatePicker()
+        createPickerViewToolbar()
     }
 
 }

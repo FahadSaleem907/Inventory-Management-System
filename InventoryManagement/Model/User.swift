@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-struct users: Codable
+struct User: Codable
 {
     var email : String?
     var name : String?

@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-struct sales: Codable
+struct Sale: Codable
 {
     var id          : Int?
     var pid         : Int?
@@ -44,10 +44,10 @@ struct sales: Codable
     }
 }
 
-struct completeSales : Codable
+struct CompleteSale : Codable
 {
     var productName:String?
-    var sale:sales?
+    var sale:Sale?
     var storeLocation:String?
     var storeName:String?
     
@@ -63,12 +63,12 @@ struct completeSales : Codable
     {
         let values          = try decoder.container(keyedBy: CodingKeys.self)
             productName     = try values.decodeIfPresent(String.self, forKey: .productName)
-            sale            = try values.decodeIfPresent(sales.self, forKey: .sale)
+            sale            = try values.decodeIfPresent(Sale.self, forKey: .sale)
             storeLocation   = try values.decodeIfPresent(String.self, forKey: .storeLocation)
             storeName       = try values.decodeIfPresent(String.self, forKey: .storeName)
     }
     
-    init( sale : sales )
+    init( sale : Sale )
     {
         //self.productName = productname
         self.sale = sale

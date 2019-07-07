@@ -2,7 +2,7 @@ import UIKit
 
 class ViewStoresController: UIViewController {
 
-    var finalData = [stores]()
+    var finalData = [Store]()
     var storeServices = storeFunctions()
     let delegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -24,7 +24,7 @@ class ViewStoresController: UIViewController {
             
             print("++++++++++++++ \(storeList) ++++++++++++++")
             
-            self.finalData = storeList as! [stores]
+            self.finalData = storeList as! [Store]
             
             self.storeTableView.reloadData()
         }

@@ -45,7 +45,7 @@ class AddProductController: UIViewController
         }
         else
         {
-            let product1 = products(productname: productName.text!, productmanufacturer: productManufacturer.text!, productdescription: productDescription.text!, productamount: Int(productAmount.text!)!, productquantity: Int(productQuantity.text!)!, productdate: dateTxt.text!)
+            let product1 = Product(productname: productName.text!, productmanufacturer: productManufacturer.text!, productdescription: productDescription.text!, productamount: Int(productAmount.text!)!, productquantity: Int(productQuantity.text!)!, productdate: dateTxt.text!)
 
             print(product1)
             

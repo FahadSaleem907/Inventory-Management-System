@@ -2,7 +2,7 @@ import UIKit
 
 class ViewStocksController: UIViewController {
 
-    var finalData = [products]()
+    var finalData = [Product]()
     var productServices = productFunctions()
     let delegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -26,7 +26,7 @@ class ViewStocksController: UIViewController {
             guard let productList = productList else { return }
             
             print("++++++++++++++ \(productList) ++++++++++++++")
-            self.finalData = productList as! [products]
+            self.finalData = productList as! [Product]
             self.stockTableView.reloadData()
         }
     }

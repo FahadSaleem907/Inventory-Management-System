@@ -2,7 +2,7 @@ import UIKit
 
 class ViewSalesController: UIViewController {
 
-    var finalData = [completeSales]()
+    var finalData = [CompleteSale]()
     var salesServices = salesFunctions()
     let delegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -26,7 +26,7 @@ class ViewSalesController: UIViewController {
             
             print("++++++++++++++ \(salesList) ++++++++++++++")
             
-            self.finalData = salesList as! [completeSales]
+            self.finalData = salesList as! [CompleteSale]
             
             self.saleTableView.reloadData()
         }

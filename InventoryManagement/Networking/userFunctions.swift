@@ -5,7 +5,7 @@ import Alamofire
 public class userFunctions
 {
     var token:String = ""
-    var user:users?
+    var user:User?
     let connections = staticLinks()
     let delegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -25,7 +25,7 @@ public class userFunctions
     }
     
     
-    func login(email:String,password:String, completion:@escaping(Bool, users?, String?, Error?) -> Void)
+    func login(email:String,password:String, completion:@escaping(Bool, User?, String?, Error?) -> Void)
     {
         let loginParameters:Parameters = ["email":"\(email)", "password":"\(password)"]
         
@@ -58,7 +58,7 @@ public class userFunctions
                                                     print("For USER: \(userData)")
                                                     do
                                                         {
-                                                            self.user = try decoder.decode(users.self, from: jsonData)
+                                                            self.user = try decoder.decode(User.self, from: jsonData)
                                                             print("\n\(self.user!.role!) ----- \(self.user!.name!) ----- \(self.user!.email!)")
                                                             
                                                             self.delegate.currentUser = self.user
