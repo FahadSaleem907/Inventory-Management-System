@@ -213,7 +213,7 @@
                                 <state key="normal" title="Forget your password? Click Here!"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ims1" translatesAutoresizingMaskIntoConstraints="NO" id="5gs-Ot-Azw">
-                                <rect key="frame" x="20.5" y="227" width="373" height="131"/>
+                                <rect key="frame" x="20.5" y="227" width="373.00000000000011" height="131"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5gs-Ot-Azw" secondAttribute="height" multiplier="372:131" id="XCQ-sP-fhv"/>
                                 </constraints>
@@ -706,7 +706,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aa-Ad-wkq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2524.6376811594205" y="858.48214285714278"/>
+            <point key="canvasLocation" x="3658" y="610"/>
         </scene>
         <!--Product Details View Controller-->
         <scene sceneID="zzG-EH-F1i">
@@ -807,6 +807,10 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="applyEffect2" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="sellProduct:" destination="1eq-gH-Mwc" eventType="touchUpInside" id="NvH-J6-RP1"/>
+                                                    <segue destination="2hs-Bh-D0F" kind="show" identifier="showSaleScreen" id="Z4T-xF-weW"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyC-YQ-LbE" customClass="designableUIButton" customModule="InventoryManagement" customModuleProvider="target">
                                                 <rect key="frame" x="108" y="0.0" width="83" height="30"/>
@@ -854,7 +858,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pWN-1q-7UV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3234.7826086956525" y="1283.7053571428571"/>
+            <point key="canvasLocation" x="2593" y="991"/>
         </scene>
         <!--View Sales Controller-->
         <scene sceneID="lEf-Rk-wUO">
@@ -946,7 +950,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e9a-Jz-GOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1009" y="1725"/>
+            <point key="canvasLocation" x="916" y="1725"/>
         </scene>
         <!--Add Store Controller-->
         <scene sceneID="RwC-tv-jod">
@@ -1247,7 +1251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUM-Px-EMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2528" y="180"/>
+            <point key="canvasLocation" x="3371" y="-123"/>
         </scene>
         <!--View Stocks Controller-->
         <scene sceneID="oOE-dw-Pwb">
@@ -1541,4 +1545,7 @@
         <image name="hamburger" width="50" height="50"/>
         <image name="ims1" width="691" height="248"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Z4T-xF-weW"/>
+    </inferredMetricsTieBreakers>
 </document>

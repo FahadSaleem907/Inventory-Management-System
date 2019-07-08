@@ -2,15 +2,16 @@ import UIKit
 
 class AddSalesController: UIViewController
 {
-
     var datePicker = UIDatePicker()
-    var selectedStore:Store?
-    var selectedProduct:Product?
+    var storeList = UIPickerView()
     let delegate = UIApplication.shared.delegate as! AppDelegate
     let saleServices = salesFunctions()
     let storeService = storeFunctions()
     let productService = productFunctions()
-    
+    var finalStoreData = [Store]()
+    var tmpProduct:Product?
+    var product:Product?
+    var store:Store?
     
     @IBOutlet weak var productID: fancyTextField!
     @IBOutlet weak var storeID: fancyTextField!
@@ -43,13 +44,10 @@ class AddSalesController: UIViewController
         }
         else
         {
-            //getSelectedProductAndStore()
-            
-            //Completely Filling Up The Sales Details Using Data from Products and Stores.
             let sale1 = Sale( pid: Int(productID.text!)!, quantity: Int(quantitySold.text!)!, saledate: dateTxt.text!, stocksold: Int(stockSold.text!)!, storeid: Int(storeID.text!)!)
             
-            let completeSale1 = CompleteSale(productname: self.selectedProduct!.name!, sale: sale1, storelocation: self.selectedStore!.location, storename: self.selectedStore!.storeName)
-            //let completeSale1 = CompleteSale(sale: sale1)
+            let completeSale1 = CompleteSale(productname: product!.name!, sale: sale1, storelocation: self.store!.location, storename: self.store!.storeName)
+
             print(sale1)
             print(completeSale1)
             saleServices.addSales(token: self.delegate.mainToken! , sale: completeSale1)
@@ -78,64 +76,16 @@ class AddSalesController: UIViewController
         navigationController?.popViewController(animated: true)
     }
     
-//    func getSelectedProductAndStore()
-//    {
-//        do
-//        {
-//            try getSelectedProduct()
-//        }
-//        catch
-//        {
-//            print("Failed to get Product Data")
-//        }
-//
-//        do
-//        {
-//            try getSelectedStore()
-//        }
-//        catch
-//        {
-//            print("Failed to get Store Data")
-//        }
-//    }
-    
-//    func getSelectedProduct()
-//    {
-//        //Getting Selected Product Details Using Product ID.
-//        productService.getOneProduct(token: delegate.mainToken!, productID: Int(productID.text!)!)
-//        {
-//            (success, selectedProduct, error) in
-//            if success == true {
-//            self.selectedProduct = selectedProduct
-//            print("======================")
-//            print(self.selectedProduct!)
-//            print("======================")
-//            }
-//            else
-//            {
-//                print(error?.localizedDescription)
-//            }
-//        }
-//    }
-
-//    func getSelectedStore()
-//    {
-//        //Getting Selected Store Details Using Store ID.
-//        storeService.getOneStores(token: delegate.mainToken!, storeID: Int(storeID.text!)!)
-//        {
-//            (success, selectedStore, error) in
-//            if success == true {
-//            self.selectedStore = selectedStore
-//            print("======================")
-//            print(self.selectedStore!)
-//            print("======================")
-//            }
-//            else
-//            {
-//                print(error?.localizedDescription)
-//            }
-//        }
-//    }
+    func getStoreData()
+    {
+        storeService.getStores(token: self.delegate.mainToken!)
+        {
+            (success , storeList , error) in
+            guard let storeList = storeList else { return }
+            print("++++++++++++++ \(storeList) ++++++++++++++")
+            self.finalStoreData = storeList as! [Store]
+        }
+    }
     
     override func viewDidLoad()
     {
@@ -144,6 +94,14 @@ class AddSalesController: UIViewController
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.title = "Inventory Management System"
         
+        storeID.inputView = storeList
+        storeList.delegate = self
+        storeID.delegate = self
+        
+        product = tmpProduct
+        
+        productID.text = String(product!.pid!)
+        getStoreData()
         showDatePicker()
         createPickerViewToolbar()
     }
@@ -180,7 +138,9 @@ extension AddSalesController
         toolBar.setItems([doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         toolBar.barTintColor = .black
+        
         dateTxt.inputAccessoryView = toolBar
+        storeID.inputAccessoryView = toolBar
     }
     
     @objc func donePressed()
@@ -211,3 +171,68 @@ extension AddSalesController
     }
 }
 
+
+extension AddSalesController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UINavigationControllerDelegate
+{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int
+    {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    {
+        return finalStoreData.count
+    }
+    
+    
+
+
+    
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    {
+        return finalStoreData[row].storeName + "  ,  " + finalStoreData[row].location
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        storeID.text = String(finalStoreData[row].id!)
+        store = finalStoreData[row]
+        print("zzzzz\(store)zzzz")
+    }
+//
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView
+    {
+        var label:UILabel
+        
+        if let view = view as? UILabel
+        {
+            label = view
+        }
+        else
+        {
+            label = UILabel()
+        }
+        
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = UIFont(name: "Menlo-Regular", size: 20)
+
+        label.text = finalStoreData[row].storeName + "  ,  " + finalStoreData[row].location
+        
+        return label
+    }
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    {
+        if textField == storeID
+        {
+            return false
+        }
+        else
+        {
+            return true
+        }
+    }
+
+}

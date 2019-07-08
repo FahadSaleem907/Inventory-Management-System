@@ -11,6 +11,11 @@ class productDetailsViewController: UIViewController {
     @IBOutlet weak var quantity: UILabel!
     @IBOutlet weak var purchaseDate: UILabel!
     
+    @IBAction func sellProduct(_ sender: designableUIButton)
+    {
+        performSegue(withIdentifier: "showSaleScreen", sender: self)
+    }
+    
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -19,6 +24,12 @@ class productDetailsViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        let goToSale = segue.destination as! AddSalesController
+        
+        goToSale.tmpProduct = product
+    }
     
     override func viewDidLoad()
     {

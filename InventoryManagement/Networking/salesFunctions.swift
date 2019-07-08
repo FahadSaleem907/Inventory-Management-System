@@ -19,11 +19,11 @@ public class salesFunctions
         ]
         
         let addSaleParameter:Parameters = [
-                                                "pid":sale.sale?.pid,
-                                                "sid":sale.sale?.storeID,
-                                                "saleDate":"\(sale.sale?.saleDate)",
-                                                "quantity":sale.sale?.quantity,
-                                                "stockSold":sale.sale?.stockSold
+                                                "pid":sale.sale!.pid!,
+                                                "sid":sale.sale!.storeID!,
+                                                "saleDate":"\(sale.sale!.saleDate!)",
+                                                "quantity":sale.sale!.quantity!,
+                                                "stockSold":sale.sale!.stockSold!
                                              ]
         
         AF.request("\(connections.addSale)", method: .post, parameters: addSaleParameter, encoding: JSONEncoding.default, headers: addSaleHeader).responseJSON
