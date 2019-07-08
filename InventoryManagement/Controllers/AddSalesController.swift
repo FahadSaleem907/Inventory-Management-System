@@ -4,8 +4,13 @@ class AddSalesController: UIViewController
 {
 
     var datePicker = UIDatePicker()
+    var selectedStore:Store?
+    var selectedProduct:Product?
     let delegate = UIApplication.shared.delegate as! AppDelegate
     let saleServices = salesFunctions()
+    let storeService = storeFunctions()
+    let productService = productFunctions()
+    
     
     @IBOutlet weak var productID: fancyTextField!
     @IBOutlet weak var storeID: fancyTextField!
@@ -38,10 +43,15 @@ class AddSalesController: UIViewController
         }
         else
         {
+            //getSelectedProductAndStore()
+            
+            //Completely Filling Up The Sales Details Using Data from Products and Stores.
             let sale1 = Sale( pid: Int(productID.text!)!, quantity: Int(quantitySold.text!)!, saledate: dateTxt.text!, stocksold: Int(stockSold.text!)!, storeid: Int(storeID.text!)!)
-            let completeSale1 = CompleteSale(sale: sale1)
-            print(completeSale1)
+            
+            let completeSale1 = CompleteSale(productname: self.selectedProduct!.name!, sale: sale1, storelocation: self.selectedStore!.location, storename: self.selectedStore!.storeName)
+            //let completeSale1 = CompleteSale(sale: sale1)
             print(sale1)
+            print(completeSale1)
             saleServices.addSales(token: self.delegate.mainToken! , sale: completeSale1)
             {
                 (error) in
@@ -68,8 +78,67 @@ class AddSalesController: UIViewController
         navigationController?.popViewController(animated: true)
     }
     
+//    func getSelectedProductAndStore()
+//    {
+//        do
+//        {
+//            try getSelectedProduct()
+//        }
+//        catch
+//        {
+//            print("Failed to get Product Data")
+//        }
+//
+//        do
+//        {
+//            try getSelectedStore()
+//        }
+//        catch
+//        {
+//            print("Failed to get Store Data")
+//        }
+//    }
     
-    override func viewDidLoad() {
+//    func getSelectedProduct()
+//    {
+//        //Getting Selected Product Details Using Product ID.
+//        productService.getOneProduct(token: delegate.mainToken!, productID: Int(productID.text!)!)
+//        {
+//            (success, selectedProduct, error) in
+//            if success == true {
+//            self.selectedProduct = selectedProduct
+//            print("======================")
+//            print(self.selectedProduct!)
+//            print("======================")
+//            }
+//            else
+//            {
+//                print(error?.localizedDescription)
+//            }
+//        }
+//    }
+
+//    func getSelectedStore()
+//    {
+//        //Getting Selected Store Details Using Store ID.
+//        storeService.getOneStores(token: delegate.mainToken!, storeID: Int(storeID.text!)!)
+//        {
+//            (success, selectedStore, error) in
+//            if success == true {
+//            self.selectedStore = selectedStore
+//            print("======================")
+//            print(self.selectedStore!)
+//            print("======================")
+//            }
+//            else
+//            {
+//                print(error?.localizedDescription)
+//            }
+//        }
+//    }
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         self.navigationItem.setHidesBackButton(true, animated: true)

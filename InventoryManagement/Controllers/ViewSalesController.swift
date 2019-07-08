@@ -4,7 +4,9 @@ class ViewSalesController: UIViewController {
 
     var finalData = [CompleteSale]()
     var salesServices = salesFunctions()
+    var tmpSale:CompleteSale?
     let delegate = UIApplication.shared.delegate as! AppDelegate
+    
     
     @IBOutlet weak var saleTableView: UITableView!
     
@@ -23,6 +25,12 @@ class ViewSalesController: UIViewController {
             self.finalData = salesList as! [CompleteSale]
             self.saleTableView.reloadData()
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        let goToSaleDetails = segue.destination as! saleDetailsViewController
+        goToSaleDetails.tmpSale = tmpSale
     }
     
     override func viewDidLoad()
@@ -60,6 +68,7 @@ extension ViewSalesController:UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+        tmpSale = finalData[indexPath.row]
         let selectedIndex = indexPath
         let selectedCell = tableView.cellForRow(at: selectedIndex) as! salesTableViewCell
         selectedCell.showDetailsOutlet.isHidden = false

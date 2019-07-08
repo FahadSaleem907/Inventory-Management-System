@@ -68,11 +68,11 @@ struct CompleteSale : Codable
             storeName       = try values.decodeIfPresent(String.self, forKey: .storeName)
     }
     
-    init( sale : Sale )
+    init( productname : String , sale : Sale , storelocation : String , storename : String )
     {
-        //self.productName = productname
+        self.productName = productname
         self.sale = sale
-        //self.storeLocation = storelocation
-        //self.storeName = storename
+        self.storeLocation = storelocation
+        self.storeName = storename
     }
 }

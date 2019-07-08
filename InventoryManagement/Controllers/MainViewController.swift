@@ -33,18 +33,18 @@ class MainViewController: UIViewController
         
         
         
-        //let delegate = UIApplication.shared.delegate as! AppDelegate
-        //let storeService = storeFunctions()
-        //let productService = productFunctions()
-//        storeService.getOneStores(token: delegate.mainToken!, storeID: 35) { (success, selectedStore, error) in
+//        let delegate = UIApplication.shared.delegate as! AppDelegate
+//        let storeService = storeFunctions()
+//        let productService = productFunctions()
+//        storeService.getOneStores(token: delegate.mainToken!, storeID: 41) { (success, selectedStore, error) in
 //            guard let selectedStore = selectedStore else { return }
 //            print("======================")
 //            print(selectedStore)
 //            print("======================")
 //        }
-        
-        
-//        productService.getOneProduct(token: delegate.mainToken!, productID: 33) { (success, selectedProduct, error) in
+//        
+//        
+//        productService.getOneProduct(token: delegate.mainToken!, productID: 35) { (success, selectedProduct, error) in
 //            guard let selectedProduct = selectedProduct else { return }
 //            print("======================")
 //            print(selectedProduct)
@@ -128,4 +128,21 @@ extension MainViewController : UITableViewDelegate , UITableViewDataSource
         }
     }
     
+}
+
+extension String
+{
+    func maxLength(length: Int) -> String
+    {
+        var str = self
+        let nsString = str as NSString
+        if nsString.length >= length
+        {
+            str = nsString.substring(with:
+                NSRange(
+                    location: 0,
+                    length: nsString.length > length ? length : nsString.length))
+        }
+        return  str
+    }
 }

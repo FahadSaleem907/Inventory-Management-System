@@ -2,9 +2,11 @@ import UIKit
 
 class ViewStocksController: UIViewController {
 
+    var tmpProduct:Product?
     var finalData = [Product]()
     var productServices = productFunctions()
     let delegate = UIApplication.shared.delegate as! AppDelegate
+    
     
     @IBOutlet weak var stockTableView: UITableView!
     
@@ -12,6 +14,7 @@ class ViewStocksController: UIViewController {
     {
         navigationController?.popViewController(animated: true)
     }
+    
     
     func getData()
     {
@@ -25,6 +28,22 @@ class ViewStocksController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        let goToProductDetails = segue.destination as! productDetailsViewController
+        
+        goToProductDetails.tmpProduct = tmpProduct
+    }
+    
+    
+    //override func viewWillAppear(_ animated: Bool)
+    //{
+        //getData()
+        //shaderBtn.isHidden = true
+        //shaderBtn.alpha = 0
+    //}
+    
+    
     
     override func viewDidLoad()
     {
@@ -34,7 +53,6 @@ class ViewStocksController: UIViewController {
         stockTableView.dataSource   = self
         
         getData()
-        
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.title = "Inventory Management System"
     }
@@ -61,6 +79,8 @@ extension ViewStocksController:UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+        tmpProduct = finalData[indexPath.row]
+        
         let selectedIndex = indexPath
         let selectedCell = tableView.cellForRow(at: selectedIndex) as! ProductTableViewCell
         selectedCell.productDetailsOutlet.isHidden = false
