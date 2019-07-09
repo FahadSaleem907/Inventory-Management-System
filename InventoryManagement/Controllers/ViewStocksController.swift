@@ -118,7 +118,8 @@ extension ViewStocksController:UITableViewDelegate,UITableViewDataSource
                             if success == true
                             {
                                 self.successAlert(msg: "Product Successfully Deleted", controller: self)
-                                self.stockTableView.reloadData()
+                                self.getData()
+                                //self.stockTableView.reloadData()
                                 completion(true)
                             }
                             else

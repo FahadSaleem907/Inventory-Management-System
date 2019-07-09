@@ -24,8 +24,8 @@ struct Store: Codable
     
     init( storename : String , location : String )
     {
-        self.storeName = storename
-        self.location = location
+        self.storeName  = storename
+        self.location   = location
     }
     
 }

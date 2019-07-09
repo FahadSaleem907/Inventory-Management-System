@@ -5,7 +5,7 @@ class MainViewController: UIViewController
 {
     var menuShowing:Bool = false
     var adminMenuItems = ["Dashboard" , "Add Stores" , "View Stores" ]
-    var clientMenuItems = ["Dashboard" , "Add Product" , "Add Sale Details" , "View Stocks" , "View Sales" ]
+    var clientMenuItems = ["Dashboard" , "Add Product" , "View Stocks" , "View Sales" ]
     var user = ""
     var count = 0
     var userService = userFunctions()
@@ -13,7 +13,7 @@ class MainViewController: UIViewController
     
     @IBOutlet weak var menuTableView: UITableView!
     @IBOutlet weak var menuView: UIView!
-
+    
     override func viewWillAppear(_ animated: Bool)
     {
         
@@ -22,7 +22,6 @@ class MainViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         menuTableView.delegate = self
         menuTableView.dataSource = self
@@ -31,27 +30,7 @@ class MainViewController: UIViewController
         menuView.layer.shadowOpacity = 1
         navigationController?.isNavigationBarHidden = true
         
-        
-        
-//        let delegate = UIApplication.shared.delegate as! AppDelegate
-//        let storeService = storeFunctions()
-//        let productService = productFunctions()
-//        storeService.getOneStores(token: delegate.mainToken!, storeID: 41) { (success, selectedStore, error) in
-//            guard let selectedStore = selectedStore else { return }
-//            print("======================")
-//            print(selectedStore)
-//            print("======================")
-//        }
-//        
-//        
-//        productService.getOneProduct(token: delegate.mainToken!, productID: 35) { (success, selectedProduct, error) in
-//            guard let selectedProduct = selectedProduct else { return }
-//            print("======================")
-//            print(selectedProduct)
-//            print("======================")
-//        }
-        
-        }
+    }
 }
 
 extension MainViewController : UITableViewDelegate , UITableViewDataSource
@@ -95,7 +74,7 @@ extension MainViewController : UITableViewDelegate , UITableViewDataSource
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-            return 50
+        return 50
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
@@ -109,10 +88,6 @@ extension MainViewController : UITableViewDelegate , UITableViewDataSource
         if cell.menuItem.text == "Add Product"
         {
             performSegue(withIdentifier: "addProductScreen", sender: self)
-        }
-        if cell.menuItem.text == "Add Sale Details"
-        {
-            performSegue(withIdentifier: "saleDetailScreen", sender: self)
         }
         if cell.menuItem.text == "View Stores"
         {

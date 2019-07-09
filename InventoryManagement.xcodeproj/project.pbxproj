@@ -41,6 +41,7 @@
 		A3B1422B22CE5656001FF87A /* salesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B1422A22CE5656001FF87A /* salesTableViewCell.swift */; };
 		A3B1422D22CE57AC001FF87A /* saleDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B1422C22CE57AC001FF87A /* saleDetailsViewController.swift */; };
 		FA361C3F22CCC09100D4904F /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA361C3E22CCC09100D4904F /* StoreTableViewCell.swift */; };
+		FA660A2822D49B7900DFD1B3 /* designableUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA660A2722D49B7900DFD1B3 /* designableUIView.swift */; };
 		FA83DD3F22C7393D009F182E /* connections.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DD3E22C7393D009F182E /* connections.swift */; };
 		FA83DD4122C73B87009F182E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DD4022C73B87009F182E /* SignInViewController.swift */; };
 		FA83DD4322C73B9D009F182E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DD4222C73B9D009F182E /* SignUpViewController.swift */; };
@@ -114,6 +115,7 @@
 		CFF4D37E4BFF8861ED24690E /* Pods-InventoryManagementUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventoryManagementUITests.release.xcconfig"; path = "Target Support Files/Pods-InventoryManagementUITests/Pods-InventoryManagementUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E69533E761163A4F0FD57EFC /* Pods-InventoryManagement.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventoryManagement.debug.xcconfig"; path = "Target Support Files/Pods-InventoryManagement/Pods-InventoryManagement.debug.xcconfig"; sourceTree = "<group>"; };
 		FA361C3E22CCC09100D4904F /* StoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
+		FA660A2722D49B7900DFD1B3 /* designableUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = designableUIView.swift; sourceTree = "<group>"; };
 		FA83DD3E22C7393D009F182E /* connections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = connections.swift; sourceTree = "<group>"; };
 		FA83DD4022C73B87009F182E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		FA83DD4222C73B9D009F182E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				A31D9C4022B8FC5400648293 /* DesignableUILabel.swift */,
 				FAF239C222CB51F8001C7F5A /* designableUIView SegmentView.swift */,
 				FAAA180722D0B1F800AFD53A /* DateTimeFormatter.swift */,
+				FA660A2722D49B7900DFD1B3 /* designableUIView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				FAAA180822D0B1F800AFD53A /* DateTimeFormatter.swift in Sources */,
 				FAF9F25622CE270700FB712D /* ProductTableViewCell.swift in Sources */,
 				A3858AE922C0DB3E0067EE5B /* DashboardViewController.swift in Sources */,
+				FA660A2822D49B7900DFD1B3 /* designableUIView.swift in Sources */,
 				A384E02B22C376F800897110 /* salesFunctions.swift in Sources */,
 				A3B1422D22CE57AC001FF87A /* saleDetailsViewController.swift in Sources */,
 				A31EAD0722B7807A00E65EC2 /* fancyTextField.swift in Sources */,

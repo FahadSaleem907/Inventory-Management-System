@@ -62,17 +62,17 @@ struct CompleteSale : Codable
     init(from decoder: Decoder) throws
     {
         let values          = try decoder.container(keyedBy: CodingKeys.self)
-            productName     = try values.decodeIfPresent(String.self, forKey: .productName)
-            sale            = try values.decodeIfPresent(Sale.self, forKey: .sale)
-            storeLocation   = try values.decodeIfPresent(String.self, forKey: .storeLocation)
-            storeName       = try values.decodeIfPresent(String.self, forKey: .storeName)
+            productName     = try values.decodeIfPresent(String.self,   forKey: .productName)
+            sale            = try values.decodeIfPresent(Sale.self,     forKey: .sale)
+            storeLocation   = try values.decodeIfPresent(String.self,   forKey: .storeLocation)
+            storeName       = try values.decodeIfPresent(String.self,   forKey: .storeName)
     }
     
     init( productname : String , sale : Sale , storelocation : String , storename : String )
     {
-        self.productName = productname
-        self.sale = sale
-        self.storeLocation = storelocation
-        self.storeName = storename
+        self.productName    = productname
+        self.sale           = sale
+        self.storeLocation  = storelocation
+        self.storeName      = storename
     }
 }
