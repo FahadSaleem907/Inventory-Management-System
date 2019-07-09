@@ -92,4 +92,75 @@ extension ViewStocksController:UITableViewDelegate,UITableViewDataSource
         let selectedCell = tableView.cellForRow(at: selectedIndex) as! ProductTableViewCell
         selectedCell.productDetailsOutlet.isHidden = true
     }
+
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let delete = deleteAction(at: indexPath)
+        
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction
+    {
+        let action = UIContextualAction(style: .destructive, title: "Delete")
+        {
+            (delete, view, completion) in
+            
+            func userAlert(msg:String, controller:UIViewController)
+            {
+                let alertValidation = UIAlertController(title: "", message: msg, preferredStyle: .alert)
+                let buttonYes = UIAlertAction(title: "Yes", style: .default)
+                { (_) in
+                    self.productServices.deleteProduct(token: self.delegate.mainToken!, productID: self.finalData[indexPath.row].pid!, completion:
+                        {
+                            ( success , error, msg) in
+                            if success == true
+                            {
+                                self.successAlert(msg: "Product Successfully Deleted", controller: self)
+                                self.stockTableView.reloadData()
+                                completion(true)
+                            }
+                            else
+                            {
+                                self.failureAlert(msg: "Failed to Delete Product. \n\(error)", controller: self)
+                                //self.stockTableView.reloadData()
+                                return
+                            }
+                    })
+                }
+                let buttonNo = UIAlertAction(title: "No", style: .default, handler: nil)
+                alertValidation.addAction(buttonYes)
+                alertValidation.addAction(buttonNo)
+                self.present(alertValidation, animated: true, completion: nil)
+            }
+            
+            userAlert(msg: "Do you want to delete the selected product ?", controller: self)
+        }
+        
+        
+        action.backgroundColor = .red
+        return action
+    }
 }
+
+extension ViewStocksController
+{
+    func successAlert(msg:String , controller:UIViewController)
+    {
+        let alertValidation = UIAlertController(title: "Success", message: msg, preferredStyle: .alert)
+        let buttonOK = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alertValidation.addAction(buttonOK)
+        present(alertValidation, animated: true, completion: nil)
+    }
+    
+    func failureAlert(msg:String , controller:UIViewController)
+    {
+        let alertValidation = UIAlertController(title: "Failed", message: msg, preferredStyle: .alert)
+        let buttonOK = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alertValidation.addAction(buttonOK)
+        present(alertValidation, animated: true, completion: nil)
+    }
+}
+
+

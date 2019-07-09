@@ -196,9 +196,41 @@ public class productFunctions
     }
     
     
-    func deleteProduct()
+    func deleteProduct(token:String, productID:Int, completion:@escaping(Bool?, String?,String?)->Void)
     {
+        let deleteProductHeader:HTTPHeaders   = [
+            "token":"\(token)",
+            "Accept":"application/json"
+        ]
         
+        let deleteProductParameter:Parameters = [
+            "pid":productID
+        ]
+        
+        AF.request("\(connections.deleteProduct)", method: .delete, parameters: deleteProductParameter, encoding: JSONEncoding.default, headers: deleteProductHeader).responseJSON
+            {
+                (response) in
+                
+                if let error = response.error
+                {
+                    let err = error.localizedDescription
+                    completion( false , err , nil )
+                }
+                else
+                {
+                    let temp = try! response.result.get() as! [String:Any]
+                    let error = temp["error"] as! String
+                    if error != ""
+                    {
+                        completion( false , error , nil )
+                    }
+                    else
+                    {
+                        let msg = temp["message"] as! String
+                        completion( true , nil , msg )
+                    }
+                }
+        }
     }
 }
 
