@@ -6,6 +6,7 @@ class SignInViewController: UIViewController {
     var role:Bool = false
     let delegate = UIApplication.shared.delegate as! AppDelegate
     let userServices = userFunctions()
+    let progressView = RSLoadingView()
     
     @IBOutlet weak var emailTxtOut: fancyTextField!
     @IBOutlet weak var pwTxtOut: fancyTextField!
@@ -23,7 +24,6 @@ class SignInViewController: UIViewController {
         }
         else
         {
-            let progressView = RSLoadingView()
             userServices.token = ""
             progressView.show(on: self.view)
             userServices.login(email: "\(emailTxtOut.text!)", password: "\(pwTxtOut.text!)")
@@ -39,20 +39,16 @@ class SignInViewController: UIViewController {
                         if self.userServices.token != ""
                         {
                             self.performSegue(withIdentifier: "loginScreen", sender: self)
-                        }
-                        else
-                        {
-                            progressView.hide()
-                            return
+                            self.progressView.hide()
                         }
                     }
-                    else if let error = error
+                    else
                     {
-                        print(error)
-                        progressView.hide()
+                        print(error!.localizedDescription)
+                        self.progressView.hide()
                     }
             }
-            
+        //progressView.hide()
         }
     }
     
