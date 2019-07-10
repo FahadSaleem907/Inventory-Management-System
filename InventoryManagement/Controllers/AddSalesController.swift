@@ -67,13 +67,13 @@ class AddSalesController: UIViewController
     
     @IBAction func cancelBtn(_ sender: designableUIButton)
     {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     
     @IBAction func backBtn(_ sender: UIButton)
     {
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     func getStoreData()
@@ -103,7 +103,8 @@ class AddSalesController: UIViewController
         productID.text = String(product!.pid!)
         getStoreData()
         showDatePicker()
-        createPickerViewToolbar()
+        createDateViewToolbar()
+        createStoreToolbar()
     }
 
 }
@@ -130,7 +131,14 @@ extension AddSalesController
         self.view.endEditing(true)
     }
     
-    func createPickerViewToolbar()
+    @objc private func storeSelected()
+    {
+        print(dateTxt.text!)
+        self.view.endEditing(true)
+    }
+    
+    
+    func createDateViewToolbar()
     {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
@@ -140,6 +148,17 @@ extension AddSalesController
         toolBar.barTintColor = .black
         
         dateTxt.inputAccessoryView = toolBar
+    }
+    
+    func createStoreToolbar()
+    {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(storeSelected))
+        toolBar.setItems([doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        toolBar.barTintColor = .black
+        
         storeID.inputAccessoryView = toolBar
     }
     
@@ -185,10 +204,6 @@ extension AddSalesController: UIPickerViewDelegate, UIPickerViewDataSource, UITe
     }
     
     
-
-
-    
-    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
         return finalStoreData[row].storeName + "  ,  " + finalStoreData[row].location
@@ -226,6 +241,10 @@ extension AddSalesController: UIPickerViewDelegate, UIPickerViewDataSource, UITe
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
         if textField == storeID
+        {
+            return false
+        }
+        else if textField == dateTxt
         {
             return false
         }

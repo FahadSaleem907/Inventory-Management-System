@@ -1,5 +1,6 @@
 import UIKit
 import SideMenu
+import Alamofire
 
 class MainViewController: UIViewController
 {
@@ -13,6 +14,22 @@ class MainViewController: UIViewController
     
     @IBOutlet weak var menuTableView: UITableView!
     @IBOutlet weak var menuView: UIView!
+    
+//    func handleLogout()
+//    {
+//        let user = "user"
+//        let password = "password"
+//        
+//        let credentialData = "\(user):\(password)".data(usingEncoding: .utf8)!
+//        let base64Credentials = credentialData.base64EncodedStringWithOptions([])
+//        
+//        let headers = ["Authorization": "Basic \(base64Credentials)"]
+//        
+//        AF.request(.GET, "https://httpbin.org/basic-auth/user/password", headers: headers)
+//            .responseJSON { response in
+//                debugPrint(response)
+//        }
+//    }
     
     override func viewWillAppear(_ animated: Bool)
     {
